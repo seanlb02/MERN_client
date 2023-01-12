@@ -1,0 +1,1 @@
+//  this is the hero image/hero text background you first see when opening the site

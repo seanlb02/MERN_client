@@ -1,0 +1,1 @@
+// all fetches realting to the user collection (CRUD) will go here 

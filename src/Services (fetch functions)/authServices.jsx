@@ -1,0 +1,1 @@
+// Fetches relating to CRUD operations on (any) collection will go in here 
