@@ -1,1 +1,2 @@
-### potential file structure for the client 
+### potential file structure for the client
+'
