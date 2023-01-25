@@ -1,0 +1,32 @@
+* {
+    margin: 0px;
+    padding:0px;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.nav-link {
+    font-size: 16px;
+    margin: 3px;
+    color:#8F99EB!important;
+    font-weight:300
+}
+.navbar-nav {
+    text-align: right;
+    margin-right: 20px;
+}
+.menu-bar .navbar-toggler {
+    padding-right: 20px;
+    outline: none !important;
+    border: none !important
+}
+.navbar .fa {
+    color:#8F99EB !important;
+    font-size: 26px;
+}
+.nav-link:hover {
+    border-bottom: 1px solid #F77E49
+}
+.navbar-brand img {
+    width: 150px;
+
+}

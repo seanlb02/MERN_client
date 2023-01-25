@@ -1,6 +1,8 @@
 import React from 'react'
 import {Route, BrowserRouter, Routes, Link} from 'react-router-dom'
-import { Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
+import { Nav, Navbar, NavDropdown, Button } from "react-bootstrap"
+
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -8,28 +10,36 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Navigator() {
   return (
-    <div>
-    <Navbar className="ps-3 pe-3 pb-3 pt-3 flex" collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand className="text-light" as={Link} to="/">
-        <div>[logo]</div>
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" className="bg-dark" />
-      <Navbar.Collapse id="responsive-navbar-nav" className>
-        <Nav className="flex ms-auto justify-content-end align-items-center">
+    <>
+    <nav class="navbar navbar-expand-lg navbar light">
+      <a class="navbar-brand" href="#"><img src="src/assets/logo.png" alt= "logo"></img></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class ="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item active px-3">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item px-3">
+              <a class="nav-link" href="#">Graph</a>
+            </li>
+            <li class="nav-item px-3">
+              <a class="nav-link" href="#">Weekly Check-in</a>
+            </li>
+            <li class="nav-item px-3">
+              <a class="nav-link" href="#">Friends</a>
+            </li>
+            <li class="nav-item px-3">
+              <a class="nav-link" href="#">Settings</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-          <Nav.Link as={Link} className="text-light" to="/about">About</Nav.Link>
-          <Nav.Link ><Button className="float-start m-auto d-flex bg-dark border-0" as={Link} to="/about">Sign up</Button></Nav.Link>
-          <Nav.Link ><Button className="float-start ps-12  m-auto d-flex bg-success border-0" as={Link} to="/about">Log in</Button></Nav.Link>
 
-        </Nav>
-        
-      </Navbar.Collapse>
-      
-    </Navbar>
-  
+    </>
 
-
-    </div>
   )
 }
 
