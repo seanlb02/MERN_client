@@ -6,6 +6,7 @@ export default function Login() {
     <div className="color-overlay d-flex
     justify-content-center align-items-center">
         <Form className= "rounded p-4 p-sm-3">
+            <h1 className="header">Login</h1>
             <Form.Group className= "mb-3"
             controlID="formBasicEmail">
                 <Form.Label>Email or username</Form.Label>
@@ -25,11 +26,11 @@ export default function Login() {
                 <Form.Check type= "checkbox" label="Remember Me"/>
             </Form.Group>
 
-            <Button type="button" class="btn btn-success btn-blocak btn-lg round">
+            <Button type="button" class="btn btn-success btn-block btn-lg round">
                 Login
             </Button>
 
-            <p class="text-center text-muted mt-b mb-0">Don't have an account?
+            <p class="text-center text-muted mt-b">Don't have an account?
                 <a href="#" class="fw-bold text-body"><u>Sign-up here</u></a>
             </p>
 
