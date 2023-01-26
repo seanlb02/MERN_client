@@ -6,6 +6,7 @@ import { ReactDOM } from 'react-dom'
 import {Route, BrowserRouter, Routes, Link} from 'react-router-dom'
 import Home from './Pages/Home'
 import About from './Pages/About'
+import Journal from './Pages/Journal'
 
 import Navigator from './Components/Navbar'
 
@@ -14,6 +15,7 @@ import Navigator from './Components/Navbar'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 
 export default function App() {
@@ -24,6 +26,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
+        <Route path="/journal" element={<Journal/>}/>
         </Routes>
     </>
   )
