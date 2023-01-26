@@ -6,6 +6,7 @@ export default function Register() {
         <div className="d-flex
     justify-content-center align-items-center">
             <Form className="rounded p-4 p-sm-3">
+                <h1 class= "header">Sign-up here</h1>
                 <Form.Group className="mb-3"
                     controlID="formBasicEmail">
                     <Form.Label>Email</Form.Label>
@@ -27,7 +28,7 @@ export default function Register() {
                         placeholder="Enter Password" />
                 </Form.Group>
 
-                <Button type= "button" class="btn btn-success btn-blocak btn-lg round">
+                <Button type= "button" class="btn btn-success btn-block btn-lg round">
                     Sign-up
                 </Button>
 
