@@ -7,7 +7,7 @@
 .nav-link {
     font-size: 16px;
     margin: 3px;
-    color:#8F99EB!important;
+    color:#6486DD!important;
     font-weight:300
 }
 .navbar-nav {
@@ -20,7 +20,7 @@
     border: none !important
 }
 .navbar .fa {
-    color:#8F99EB !important;
+    color:#6486DD !important;
     font-size: 26px;
 }
 .nav-link:hover {
@@ -30,3 +30,10 @@
     width: 150px;
 
 }
+
+.round {
+    border-radius: 24px !important;
+    background-color: #6486DD !important;
+    border-color: #6486DD !important;
+}
+
