@@ -6,8 +6,8 @@ import { ReactDOM } from 'react-dom'
 import {Route, BrowserRouter, Routes, Link} from 'react-router-dom'
 import Home from './Pages/Home'
 import About from './Pages/About'
-
 import Navigator from './Components/Navbar'
+import WelcNav from './Components/welcomeNav'
 
 
 
@@ -20,7 +20,8 @@ export default function App() {
 
   return (
     <>
-      <Navigator/>
+      {/* <Navigator/> */}
+      <WelcNav/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
