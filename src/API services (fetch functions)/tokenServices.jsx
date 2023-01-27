@@ -7,7 +7,7 @@ export function checkTokenExpiration(token) {
     // 1. Get token from local storage 
     const token =  (JSON.parse(localStorage.getItem("tokenKey").replaceAll("", '')))
     // 2. decode the token to see its expiration
-    let decodedToken = jwt_decode(token);
+    let decodedToken = jwt_decode(token); 
     let currentDate = new Date();
   
     // check to see if token has expired
