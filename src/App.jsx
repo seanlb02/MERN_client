@@ -21,7 +21,7 @@ export default function App() {
   return (
     <>
       <Navigator/>
-      {/* <WelcNav/> */}
+
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>

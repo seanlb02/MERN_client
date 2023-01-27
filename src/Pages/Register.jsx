@@ -28,7 +28,7 @@ export default function Register() {
                         placeholder="Enter Password" />
                 </Form.Group>
 
-                <Button type= "button" class="btn btn-success btn-block btn-lg round">
+                <Button type="button" class="btn btn-success btn-block btn-lg round">
                     Sign-up
                 </Button>
 
