@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 // 1. POST registration form data to database to add new user 
 
     export async function registerUser(email, usr, pwd, age) {
-        let RegBody = { email: `${email}`, usr: `${usr}`, pwd: `${pwd}`, age: `${age}`}
+        let RegBody = { email: `${email}`, usr: `${username}`, pwd: `${password}`, age: `${age}`}
         const res = await
         fetch(`https://${process.env.API_URL}/auth/login/`, {
             method: 'POST',
@@ -31,7 +31,7 @@ import { useNavigate } from "react-router-dom";
 // 2. POST log in form data to database and return a session TOKEN (JWT)
 
     export async function logIn(usr, pwd) {
-        let AuthBody = { usr: `${email}`, pwd: `${password}` }
+        let AuthBody = { usr: `${username}`, pwd: `${password}` }
         const res = await
             fetch(`https://${process.env.API_URL}/auth/login/`, {
             method: 'POST',
