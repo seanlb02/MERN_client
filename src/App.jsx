@@ -12,11 +12,13 @@ import Navigator from './Components/Navbar'
 import WelcNav from './Components/welcomeNav'
 import Login from './Pages/Login'
 import Register from './Pages/Register'
+import Questionnaire from './Pages/Questionnaire'
 
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+
 
 
 export default function App() {
@@ -31,7 +33,7 @@ export default function App() {
         <Route path="/journal" element={<Journal/>}/>
         <Route path= "/login" element = {<Login/>}/>
         <Route path= "/register" element = {<Register/>}/>
-
+        <Route path="/questions" element={<Questionnaire/>}/>
       </Routes>
     </>
   )
