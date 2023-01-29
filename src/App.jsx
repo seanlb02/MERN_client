@@ -21,6 +21,9 @@ import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 
 export default function App() {
+  const [user,setLoginUser] =useState({
+
+  })
 
   return (
     <>
@@ -30,7 +33,7 @@ export default function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/journal" element={<Journal/>}/>
-        <Route path= "/login" element = {<Login/>}/>
+        <Route path= "/login" element = {<Login/>}><Login setLoginUser={setLoginUser}/></Route>
         <Route path= "/register" element = {<Register/>}/>
         <Route path="/questions" element={<Questionnaire/>}/>
       </Routes>
