@@ -9,7 +9,6 @@ import About from './Pages/About'
 
 import Journal from './Pages/Journal'
 import Navigator from './Components/Navbar'
-import WelcNav from './Components/welcomeNav'
 import Login from './Pages/Login'
 import Register from './Pages/Register'
 import Questionnaire from './Pages/Questionnaire'

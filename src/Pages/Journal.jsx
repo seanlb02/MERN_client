@@ -74,7 +74,7 @@ const Journal = () => {
     ], [tempColor]);
 
     const saveEvent = React.useCallback(() => {
-        const newEvent = {
+        const newEvent ={
             id: tempEvent.id,
             title: popupEventTitle,
             description: popupEventDescription,
@@ -83,8 +83,11 @@ const Journal = () => {
             allDay: popupEventAllDay,
             status: popupEventStatus,
             color: tempEvent.color,
-            color: selectedColor
+            color: selectedColor,
+
         };
+
+
         if (isEdit) {
             // update the event in the list
             const index = myEvents.findIndex(x => x.id === tempEvent.id);;
