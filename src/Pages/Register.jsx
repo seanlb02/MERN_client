@@ -29,17 +29,17 @@ const Register = () => {
             <form>
                 <div class ="form-group">
                     <label for="InputEmail">Email Address</label>
-                    <input type="email" class="form-control" id="InputEmail" name ="email" value ={user.email} onChange={handleChange} placeholder= "Enter email"></input>
+                    <input type="text" class="form-control" id="InputEmail" name ="email" value ={user.email} onChange={handleChange} placeholder= "Enter email"></input>
                 </div>
                 <div class="form-group">
                     <label for="InputUsername">Username</label>
-                    <input type="username" class="form-control" id="InputUsername" name="username" value={user.username} onChange={handleChange} placeholder="Enter username"></input>
+                    <input type="text" class="form-control" id="InputUsername" name="username" value={user.username} onChange={handleChange} placeholder="Enter username"></input>
                 </div>
                 <div class="form-group">
                     <label for="InputPassword">Password</label>
                     <input type="password" class="form-control" id="InputPassword" name="password" value={user.password} onChange={handleChange} placeholder="Enter password"></input>
                 </div>
-                <Button type="button" class="btn btn-success btn-block btn-lg round" onClick={egister}>
+                <Button type="submit" class="btn btn-success btn-block btn-lg round" onClick={egister}>
                      Sign-up
                 </Button>
 
