@@ -52,6 +52,9 @@ const Questionnaire = () => {
         console.log(score)
         event.preventDefault();
         setShowResults(true)
+
+        
+
       };
       const handleChange = (selection, index) => {
         let tempState = {...selections}
@@ -65,7 +68,7 @@ const Questionnaire = () => {
         setSelections([Object.keys(questions).map(x => [])])
       };
     
-    
+      // const [score, setScore] = useState("")
     
     
       return (

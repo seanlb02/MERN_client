@@ -12,7 +12,11 @@ import Navigator from './Components/Navbar'
 import Login from './Pages/Login'
 import Register from './Pages/Register'
 import Questionnaire from './Pages/Questionnaire'
+
 import Friends from './Pages/friend'
+
+import Settings from './Pages/Settings'
+
 
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,7 +25,12 @@ import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
 
 
+
+
+
+
 export default function App() {
+ 
 
 
   return (
@@ -34,7 +43,11 @@ export default function App() {
         <Route path= "/login" element = {<Login/>}/>
         <Route path= "/register" element = {<Register/>}/>
         <Route path="/questions" element={<Questionnaire/>}/>
+
         <Route path="/friends" element={<Friends />} />
+
+        <Route path="/settings" element={<Settings/>}/>
+
       </Routes>
     </>
   )
