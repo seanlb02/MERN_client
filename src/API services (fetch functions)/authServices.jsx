@@ -60,10 +60,10 @@ import { useNavigate } from "react-router-dom";
 
 // 3. Log the user out, remove their token from LocalStorage and push them to the home page
 
-    export function logOut() {
+    export function LogOut() {
         // 1. delete token from LocalStorage
         localStorage.removeItem("tokenKey")
-        // 2. push the user to their home page
-        useNavigate("/");
+      
+       
     }
 
