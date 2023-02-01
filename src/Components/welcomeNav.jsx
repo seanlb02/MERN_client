@@ -13,19 +13,19 @@ export default function WelcNav() {
         <>
             <nav className="navbar navbar-expand-lg navbar light ">
                 <a className="navbar-brand" href="#"><img src="src/assets/logo.png" alt="logo"></img></a>
-                {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
-                </button> */}
-                {/* <div class="collapse navbar-collapse" id="navbarNav"> */}
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ms-auto">
                     <li className="nav-item active px-3">
-                        <a className="nav-link" href="#">Login</a>
+                        <a className="nav-link" href="/login">Login</a>
                         </li>
-                    <li className="nav-item px-3">
-                        <button className="btn btn-primary btn-lg round" type="submit">Sign-up</button>
-                        </li>
-                    </ul>
-                {/* </div> */}
+                    <li className="nav-link px-3">
+                        <a href="/register"><button className="btn btn-primary btn-lg round" type="submit">Sign-up</button></a>
+                    </li>
+                </ul>
+                </div>
             </nav>
 
 
