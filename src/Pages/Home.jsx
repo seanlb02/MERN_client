@@ -1,9 +1,17 @@
-import React from 'react'
+import {React, useEffect} from 'react'
 import {Container, Row, Col, Image, Button} from 'react-bootstrap'
 import WelcNav from '../Components/welcomeNav'
 
 
 export default function Home() {
+
+  useEffect(() => {   
+    if(localStorage.getItem("tokenKey") != null) {
+      window.location.replace('/journal');
+    };
+},[]);
+
+
   return (
     <>
       <WelcNav />
