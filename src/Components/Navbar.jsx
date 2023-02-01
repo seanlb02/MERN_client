@@ -19,19 +19,19 @@ export default function Navigator() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item active px-3">
-              <a className="nav-link" href="#">Home</a>
+              <a className="nav-link" href="/journal">Home</a>
             </li>
             <li className="nav-item px-3">
-              <a className="nav-link" href="#">Graph</a>
+              <a className="nav-link" href="/graph">Graph</a>
             </li>
             <li className="nav-item px-3">
-              <a className="nav-link" href="#">Weekly Check-in</a>
+              <a className="nav-link" href="/questions">Weekly Check-in</a>
             </li>
             <li className="nav-item px-3">
-              <a className="nav-link" href="#">Friends</a>
+              <a className="nav-link" href="/friends">Friends</a>
             </li>
             <li className="nav-item px-3">
-              <a className="nav-link" href="#">Settings</a>
+              <a className="nav-link" href="/settings">Settings</a>
           </li>
         </ul>
       </div>
