@@ -18,9 +18,10 @@ import { useNavigate } from "react-router-dom";
                 if (!res.ok){
                     alert("Woops.. looks like one of the fields is invalid. Give it another go.")
                 }
-            // otherwise, store the token returned inyo localStorage
+            // otherwise, store the token returned into localStorage
                 else {
                     alert("Account Created! Go ahead and log in")
+                    window.location = '/'
                 }})
                 .catch((error) => {
                     console.error('Error:', error);
@@ -51,6 +52,7 @@ import { useNavigate } from "react-router-dom";
                     .then((data) => {
                         localStorage.setItem('tokenKey', JSON.stringify(data.token))
                     })
+                    .then(() => {window.location='/journal'})
                 }})
                 .catch((error) => {
                     console.error('Error:', error);
