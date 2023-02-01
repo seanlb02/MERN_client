@@ -1,5 +1,6 @@
 
-// all fetches realting to the user collection (CRUD) will go here 
+
+import { LogOut } from "./authServices"
 
 
 //  retrieve user data to be stored as state in profile parent component
@@ -13,17 +14,24 @@
 
 
     export const deleteAccount = async function () {
+        const token = (JSON.parse(localStorage.getItem("tokenKey").replaceAll("", '')))
+
         const res = await
         fetch(`https://grouchy-vessel-production.up.railway.app/users/account/delete`, {
         method: 'DELETE',
         headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
         },
         }
     ).then(res => {
         // if fetch response has an error code, issue an alert pop-up
             if (res.ok){
                 alert("Account Deleted. Sorry to see you go!")
+                window.location = '/'
+                LogOut()
+
+
             }
         // otherwise, store the token returned inyo localStorage
             else {
