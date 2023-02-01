@@ -27,13 +27,13 @@ export default function App() {
 
   return (
     <>
-      <Navigator/>
+      {/* <Navigator/> */}
 
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/journal" element={<Journal/>}/>
-        <Route path= "/login" element = {<Login/>}><Login setLoginUser={setLoginUser}/></Route>
+        <Route path= "/login" element = {<Login/>}/>
         <Route path= "/register" element = {<Register/>}/>
         <Route path="/questions" element={<Questionnaire/>}/>
       </Routes>

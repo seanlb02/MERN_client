@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
 
-// 1. POST registration form data to database to add new user 
+// 1. POST registration form data to database to add new user
 
-    export async function registerUser(email, usr, pwd, age) {
-        let RegBody = { email: `${email}`, usr: `${username}`, pwd: `${password}`, age: `${age}`}
+    export async function registerUser(email, username, password) {
+        let RegBody = { email: `${email}`, user: `${username}`, pwd: `${password}`}
         const res = await
-        fetch(`https://${process.env.API_URL}/auth/login/`, {
+            fetch(`https://grouchy-vessel-production.up.railway.app/auth/register`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
             body: JSON.stringify(RegBody),
             }
         ).then(res => {
-            // if fetch response has an error code, issue an alert pop-up 
+            // if fetch response has an error code, issue an alert pop-up
                 if (!res.ok){
                     alert("Woops.. looks like one of the fields is invalid. Give it another go.")
                 }
@@ -26,14 +26,14 @@ import { useNavigate } from "react-router-dom";
                     console.error('Error:', error);
                     })
     }
-    // after this function is run in the register component, tag on a function that pushes the user to the login page 
+    // after this function is run in the register component, tag on a function that pushes the user to the login page
 
 // 2. POST log in form data to database and return a session TOKEN (JWT)
 
-    export async function logIn(usr, pwd) {
+    export async function logIn(username, password) {
         let AuthBody = { usr: `${username}`, pwd: `${password}` }
         const res = await
-            fetch(`https://${process.env.API_URL}/auth/login/`, {
+            fetch(`https://grouchy-vessel-production.up.railway.app/auth/login`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ import { useNavigate } from "react-router-dom";
             body: JSON.stringify(AuthBody),
             }
         ).then(res => {
-            // if fetch response has an error code, issue an alert pop-up 
+            // if fetch response has an error code, issue an alert pop-up
                 if (!res.ok){
                     alert("Invalid username or password.")
                 }
@@ -56,15 +56,14 @@ import { useNavigate } from "react-router-dom";
                     console.error('Error:', error);
                     })
     }
-        // after this function is run in the login component, tag on a function that pushes the user to their profile 
+        // after this function is run in the login component, tag on a function that pushes the user to their profile
 
-// 3. Log the user out, remove their token from LocalStorage and push them to the home page 
+// 3. Log the user out, remove their token from LocalStorage and push them to the home page
 
     export function logOut() {
         // 1. delete token from LocalStorage
         localStorage.removeItem("tokenKey")
-        // 2. push the user to their home page 
+        // 2. push the user to their home page
         useNavigate("/");
     }
 
-       

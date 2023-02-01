@@ -1,51 +1,45 @@
-import React from 'react'
+import {useState} from 'react'
 import { Form, Button } from 'react-bootstrap'
-import axios from 'axios'
+import {registerUser} from '../API services (fetch functions)/authServices'
 
 const Register = () => {
-    const [user,setUser] = useState({
-        email: "",
-        username: "",
-        password: ""
-    })
-    const handleChange = e => {
-    const {name,value} = e.target
-    setUser({
-        ...user,
-        [name]:value
-    })
-    }
-// register function
-    const egister = ()=>{
-        const{email, username,password} = user
-        if (email && username && password ){
-            axios.post("http://localhost:5173/register",user)
-            .then(res=>console.log(res))
+    const[email,setEmail] = useState("")
+    const[username, setUsername] = useState("")
+    const[password, setPassword] = useState("")
+
+        const submitForm = function (e) {
+            e.preventDefault();
+            registerUser(email, username, password)
+
         }
-        else{
-            alert("Invalid user")
-        }
+
+
         return (
             <form>
                 <div class ="form-group">
                     <label for="InputEmail">Email Address</label>
-                    <input type="text" class="form-control" id="InputEmail" name ="email" value ={user.email} onChange={handleChange} placeholder= "Enter email"></input>
+                    <input type="text" class="form-control" id="InputEmail" name ="email"  onChange={(e) => {setEmail(e.target.value)}} placeholder="Enter email"></input>
                 </div>
                 <div class="form-group">
                     <label for="InputUsername">Username</label>
-                    <input type="text" class="form-control" id="InputUsername" name="username" value={user.username} onChange={handleChange} placeholder="Enter username"></input>
+                    <input type="text" class="form-control" id="InputUsername" name="username"  onChange={(e) => {setUsername(e.target.value) }} placeholder="Enter username"></input>
                 </div>
                 <div class="form-group">
                     <label for="InputPassword">Password</label>
-                    <input type="password" class="form-control" id="InputPassword" name="password" value={user.password} onChange={handleChange} placeholder="Enter password"></input>
+                    <input type="password" class="form-control" id="InputPassword" name="password"  onChange={(e) => { setPassword(e.target.value) }} placeholder="Enter password"></input>
                 </div>
-                <Button type="submit" class="btn btn-success btn-block btn-lg round" onClick={egister}>
+                <Button type="submit" class="btn btn-success btn-block btn-lg round" onClick={submitForm}>
                      Sign-up
                 </Button>
+                <p class="text-center text-muted mt-b mb-0">Have and account already?
+                    <a href="#" class="fw-bold text-body"><u>Login here</u></a>
+                </p>
+
+
 
             </form>
         )
-    }
+
 }
 export default Register
 
@@ -80,9 +74,6 @@ export default Register
 //                     Sign-up
 //                 </Button>
 
-//                 <p class="text-center text-muted mt-b mb-0">Have and account already?
-//                     <a href="#" class="fw-bold text-body"><u>Login here</u></a>
-//                 </p>
 
 
 //             </Form>
