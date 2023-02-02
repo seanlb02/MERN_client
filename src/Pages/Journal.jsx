@@ -46,8 +46,9 @@ const Journal = () => {
     const bonuses = ['joy', 'sad', 'anger','happy']
     // const [newEntries, setNewEntries] = React.useState()
     const saveEvent = React.useCallback(() => {
-        const newEvent = {
+        const newEvent ={
             id: tempEvent.id,
+
             title: title,
             description: description,
             // start: popupEventDate[0],
@@ -55,7 +56,11 @@ const Journal = () => {
             end: '',
             tags: emotion,
             allDay: popupEventAllDay
+
+
         };
+
+
         if (isEdit) {
             // update the event in the list
             const index = myEvents.findIndex(x => x.id === tempEvent.id);;
