@@ -12,7 +12,7 @@ import Navigator from './Components/Navbar'
 import Login from './Pages/Login'
 import Register from './Pages/Register'
 import Questionnaire from './Pages/Questionnaire'
-import TrackedSummary from './Pages/TrackedSummary'
+import Trackedsummary from './Pages/Trackedsummary'
 import MySummary from './Pages/MySummary'
 import Friends from './Pages/friend'
 
@@ -44,11 +44,9 @@ export default function App() {
         <Route path= "/login" element = {<Login/>}/>
         <Route path= "/register" element = {<Register/>}/>
         <Route path="/questions" element={<Questionnaire/>}/>
-        <Route path= "/summary/:username" element={<TrackedSummary/>}/>
+        <Route path= "/summary/:username" element={<Trackedsummary/>}/>
         <Route path="/mysummary" element={<MySummary/>}/>
-
         <Route path="/friends" element={<Friends />} />
-
         <Route path="/settings" element={<Settings/>}/>
 
       </Routes>

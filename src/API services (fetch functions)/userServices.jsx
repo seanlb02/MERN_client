@@ -33,7 +33,7 @@ import { LogOut } from "./authServices"
 
 
             }
-        // otherwise, store the token returned inyo localStorage
+        // otherwise, try again
             else {
                 alert("Hmm something went wrong, try reloading the page")
             }})
