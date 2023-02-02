@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, BrowserRouter, Routes, Link } from 'react-router-dom'
 import { Nav, Navbar, NavDropdown, Button } from "react-bootstrap"
+import { LogOut } from '../API services (fetch functions)/authServices';
 
 
 
@@ -33,6 +34,9 @@ export default function Navigator() {
             <li className="nav-item px-3">
               <a className="nav-link" href="/settings">Settings</a>
           </li>
+            <li className="nav-item px-3">
+              <a className="nav-link" href="/">Log-out</a>
+            </li>
         </ul>
       </div>
     </nav>
