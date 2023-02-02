@@ -38,7 +38,7 @@ export default function Friends() {
     .then(res => {
         // if fetch response has an error code, issue an alert pop-up
             if (!res.ok){
-                setError("Oops, looks like that user does not exist")
+                setError("Oops, looks like that user does not exist, or they are already tracking you")
         }});
 
 }
@@ -48,7 +48,7 @@ export default function Friends() {
   return (
     <>
        
-        <Card>
+        <Card className="mx-4 d-flex justify-content-center">
             <Card.Header>Trackers</Card.Header>
             <Card.Body>
                
@@ -56,14 +56,16 @@ export default function Friends() {
                    
                     {trackersArray.map(tracker => <a href={`/summary/${tracker.user}`}><div>{tracker.user}</div></a>)}
                 </Card.Text>
-                <Form.Group className="d-flex mb-4 mt-4 justify-content-center">
+                <Form.Group className=" mb-4 mt-4 d-flex flex-column justify-content-center">
                         <div>{error}</div>
-                        <input type="text" className="form-control w-50 d-flex justify-content-center" id="Inputtracker" name="username" onChange={(e) => { setTracker(e.target.value) }} placeholder="Enter username"></input>
+
+                        <input type="text" className="form-control d-flex col-6 mx-autojustify-content-center" id="Inputtracker" name="username" onChange={(e) => { setTracker(e.target.value) }} placeholder="Enter username"></input>
                     </Form.Group>
                 <Button onClick={onSubmit} variant="primary">Authorise Tracker</Button>
             </Card.Body>
         </Card>
-        <Card>
+
+        <Card className="mx-4 mt-4 d-flex justify-content-center">
             <Card.Header>Tracking</Card.Header>
             <Card.Body>
                
