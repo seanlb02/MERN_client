@@ -1,6 +1,6 @@
 import {Card, Button, InputGroup, Form} from 'react-bootstrap'
 import {React, useState, useEffect} from 'react'
-import { listTrackers, listTracking } from '../API services (fetch functions)/friendServices';
+import { authoriseTracker, listTrackers, listTracking } from '../API services (fetch functions)/friendServices';
 import { CheckTokenExpiration } from '../API services (fetch functions)/TokenServices';
 
 
@@ -26,12 +26,19 @@ export default function Friends() {
     const [trackingArray, setTrackingArray] = useState("")
 
 
+    // this is the state for adding/authorising a new tracker
+    const [tracker, setTracker] = useState("")
 
 // Jina, all we need to do now is map over the trackersArray and trackingArray and display each username 
 // one list/group/section for trackers, and one section below for tracking
 
 // the 'tracking' usernames will have a link that takes the user to their summary e.g. 'serene.com/summary/:username'
 
+const onSubmit = function(e) {
+    e.preventdefault();
+    authoriseTracker(tracker);
+
+}
 
   return (
     <>
