@@ -25,14 +25,14 @@ const Questionnaire = () => {
         choices: ["1", "2", "3", "4", "5"]}
       ]
       const [showResults, setShowResults] = useState(false);
-      
+      // const[finalScore, setFinalScore] = useState("");
       const [selections, setSelections] = useState([Object.keys(questions).map(x => [])]);
       
       let values = Object.values(selections)
       let message = " "
       let score = 0
-      values.forEach(val => score += val)
-    
+      values.forEach(val => (score += val))
+      
       if (score <= 10){
         message = "Your result is Normal."
       }else if (score <=20){
@@ -49,11 +49,13 @@ const Questionnaire = () => {
     
       const submitHandler = (event) => {
         console.log(selections);
-        console.log(score)
+        // console.log(score)
         event.preventDefault();
         setShowResults(true)
-
-        
+      
+        // setFinalScore(score)
+        // console.log(finalScore)
+ 
 
       };
       const handleChange = (selection, index) => {
