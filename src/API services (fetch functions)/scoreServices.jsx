@@ -12,9 +12,9 @@ export async function getCurrentScore() {
 }
 
 
-export async function addScore() {
+export async function addScore(score) {
     const token = (JSON.parse(localStorage.getItem("tokenKey").replaceAll("", '')))
-    const reqBody = {username: `${username}`, timestamp: `${timestamp}`, score: `${score}`}
+    const reqBody = { timestamp: new Date(), score: `${score}`}
     const res = await fetch(`https://grouchy-vessel-production.up.railway.app/scores/new`, {
         method: 'POST',
         headers: {

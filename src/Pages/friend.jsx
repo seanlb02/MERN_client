@@ -21,45 +21,61 @@ export default function Friends() {
     },[]);
 
 // api fetch will put list of users who is tracking the logged in user into this state
-    const [trackersArray, setTrackersArray] = useState("")
+    const [trackersArray, setTrackersArray] = useState([])
 // api fetch will put list of users who logged in user is tracking into this state
-    const [trackingArray, setTrackingArray] = useState("")
+    const [trackingArray, setTrackingArray] = useState([])
 
 
     // this is the state for adding/authorising a new tracker
     const [tracker, setTracker] = useState("")
+    const [error, setError] = useState("")
 
 // Jina, all we need to do now is map over the trackersArray and trackingArray and display each username 
 // one list/group/section for trackers, and one section below for tracking
 
 // the 'tracking' usernames will have a link that takes the user to their summary e.g. 'serene.com/summary/:username'
 
-const onSubmit = function(e) {
-    e.preventdefault();
-    authoriseTracker(tracker);
+    const onSubmit = function(e) {
+    e.preventDefault()
+    authoriseTracker(tracker)
+    .then(res => {
+        // if fetch response has an error code, issue an alert pop-up
+            if (!res.ok){
+                setError("Oops, looks like that user does not exist")
+        }});
 
 }
 
+    const renderTrackers = function () {
+        trackersArray.map(tracker => {<a href={`/summary/${tracker.user}`}>{tracker.user}</a>})
+    }
+
   return (
     <>
-        <InputGroup className="mb-3">
-            <Form.Control
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="baisc-addon2"
-            />
-            <InputGroup.Text id ="basic-addon2"></InputGroup.Text>
-        </InputGroup>
-
-
+       
         <Card>
-            <Card.Header>John Smith</Card.Header>
+            <Card.Header>Trackers</Card.Header>
             <Card.Body>
-                <Card.Title>John Smith's Summary</Card.Title>
+               
                 <Card.Text>
-                    Sth sth sth
+                    {renderTrackers()}
+                    {trackersArray.map(tracker => <a href={`/summary/${tracker.user}`}><div>{tracker.user}</div></a>)}
                 </Card.Text>
-                <Button variant="primary">View Summary</Button>
+                <Form.Group className="mb-4">
+                        <div>{error}</div>
+                        <input type="text" className="form-control" id="Inputtracker" name="username" onChange={(e) => { setTracker(e.target.value) }} placeholder="Enter username"></input>
+                    </Form.Group>
+                <Button onClick={onSubmit} variant="primary">Authorise Tracker</Button>
+            </Card.Body>
+        </Card>
+        <Card>
+            <Card.Header>Tracking</Card.Header>
+            <Card.Body>
+               
+                <Card.Text>
+                    
+                </Card.Text>
+              
             </Card.Body>
         </Card>
     </>
