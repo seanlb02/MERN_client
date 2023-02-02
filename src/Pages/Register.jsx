@@ -10,7 +10,6 @@ const Register = () => {
         const submitForm = function (e) {
             e.preventDefault();
             registerUser(email, username, password)
-
         }
 
 
