@@ -17,21 +17,21 @@ const Register = () => {
         return (
             <div className= "d-flex align-items-center justify-content-center min-vh-100">
                 <form>
-                    <h1 class="header">Sign-up here</h1>
-                    <Form.Group className="mb-3">
+                    <h1 className="header mb-5">Sign-up here</h1>
+                    <Form.Group className="mb-4">
                         <input type="text" class="form-control" id="InputEmail" name ="email"  onChange={(e) => {setEmail(e.target.value)}} placeholder="Enter email"></input>
                     </Form.Group>
-                    <Form.Group className="mb-3">
+                    <Form.Group className="mb-4">
                         <input type="text" class="form-control" id="InputUsername" name="username"  onChange={(e) => {setUsername(e.target.value) }} placeholder="Enter username"></input>
                     </Form.Group>
-                    <Form.Group className="mb-3">
-                        <input type="password" class="form-control" id="InputPassword" name="password"  onChange={(e) => { setPassword(e.target.value) }} placeholder="Enter password"></input>
+                    <Form.Group className="mb-4">
+                        <input type="password" className="form-control" id="InputPassword" name="password"  onChange={(e) => { setPassword(e.target.value) }} placeholder="Enter password"></input>
                     </Form.Group>
-                    <Button type="submit" class="btn btn-success btn-block btn-lg round" onClick={submitForm}>
+                    <Button type="submit" className="btn btn-success btn-block btn-lg round mb-2" onClick={submitForm}>
                         Sign-up
                     </Button>
-                    <p class="text-center text-muted mt-b mb-0">Have and account already?
-                        <a href="/login" class="fw-bold text-body"><u> Login here</u></a>
+                    <p className="text-center text-muted mt-b mb-0">Have and account already?
+                        <a href="/login" className="fw-bold text-body"><u> Login here</u></a>
                     </p>
 
                 </form>

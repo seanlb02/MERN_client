@@ -5,7 +5,7 @@ import WelcNav from '../Components/welcomeNav'
 
 export default function Home() {
 
-  useEffect(() => {   
+  useEffect(() => {
     if(localStorage.getItem("tokenKey") != null) {
       window.location.replace('/journal');
     };
@@ -41,11 +41,13 @@ export default function Home() {
             <Image
               src="src/assets/journalpage.png"
               fluid
+              width="500px"
               className=""
             />
           </Col>
           <Col sm={5}>
             <Image src= "src/assets/cheer.png"
+            width="300px"
             fluid
             />
             <h1>Set your mood for the day</h1>
