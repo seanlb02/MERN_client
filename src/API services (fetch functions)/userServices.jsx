@@ -3,14 +3,20 @@
 import { LogOut } from "./authServices"
 
 
-//  retrieve user data to be stored as state in profile parent component
 
-    // const getUserData = async function () {
-    //     // 1. get token from session storage 
-
-    //     // 2. check to see if its expired, if it has log the user out
-      
-    // }
+    export const getUserData = async function () {
+        // 1. get token from session storage 
+        const token = (JSON.parse(localStorage.getItem("tokenKey").replaceAll("", '')))
+        // 2. check to see if its expired, if it has log the user out
+        const res = await fetch(`https://grouchy-vessel-production.up.railway.app/users/data`, {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            },
+        })
+        return res.json()
+    }
 
 
     export const deleteAccount = async function () {
@@ -30,8 +36,6 @@ import { LogOut } from "./authServices"
                 alert("Account Deleted. Sorry to see you go!")
                 window.location = '/'
                 LogOut()
-
-
             }
         // otherwise, try again
             else {
@@ -40,6 +44,4 @@ import { LogOut } from "./authServices"
             .catch((error) => {
                 console.error('Error:', error);
                 })
-
-
     }
