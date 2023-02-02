@@ -4,7 +4,7 @@
     export async function PostEntry( title, description, tags){
         const token = (JSON.parse(localStorage.getItem("tokenKey").replaceAll("", '')))
         const postEntryBody = {title: `${title}`, text: `${description}`, timestamp: new Date(), tags: tags}
-        const res = await fetch (`${process.env.API_URL}/entries/new`, {
+        const res = await fetch (`https://grouchy-vessel-production.up.railway.app/entries/new`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

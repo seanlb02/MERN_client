@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect,useState, useCallback} from 'react'
 import { Eventcalendar, Select, snackbar, setOptions, Popup, Button, Input, Textarea, Switch, Datepicker } from '@mobiscroll/react';
-import {PostEntry} from '../API services (fetch functions)/entriesServices';
+import {getEntries, PostEntry} from '../API services (fetch functions)/entriesServices';
+import { CheckTokenExpiration } from '../API services (fetch functions)/TokenServices';
 
 setOptions({
     theme: 'ios',
@@ -27,6 +28,14 @@ const responsivePopup = {
 };
 
 const Journal = () => {
+
+
+    useEffect(() => {
+        CheckTokenExpiration();
+        getEntries().then((data) => {setEntriesArray(data)})
+    },[])
+
+    const [entriesArray, setEntriesArray] = useState([])
     const [myEvents, setMyEvents] = React.useState(defaultEvents);
     const [tempEvent, setTempEvent] = React.useState(null);
     const [isOpen, setOpen] = React.useState(false);
@@ -41,6 +50,13 @@ const Journal = () => {
     // const [mySelectedDate, setSelectedDate] = React.useState(now);
     const [emotion,setEmotion] = React.useState([])
 
+    // const entryData =  entriesArray.map((entry, i) => 
+    
+    //             <div>{entry.title}</div>
+    //             <div>{entry.text}</div>
+    //             <div>{entry.tags}</div>
+            
+    // )
 
     const selectedChange = (ev) => {setEmotion(ev.value)}
     const bonuses = ['joy', 'sad', 'anger','happy']
@@ -51,9 +67,10 @@ const Journal = () => {
 
             title: title,
             description: description,
-            // start: popupEventDate[0],
-            start: '',
-            end: '',
+            start: popupEventDate[0],
+            end: popupEventDate[1],
+            // start: '',
+            // end: '',
             tags: emotion,
             allDay: popupEventAllDay
 
@@ -185,6 +202,7 @@ const Journal = () => {
                 {
                     handler: () => {
                         saveEvent();
+                        
                     },
                     keyCode: 'enter',
                     text: 'Save',
@@ -200,6 +218,7 @@ const Journal = () => {
                         
                         // saveEvent();
                         PostEntry(title, description, emotion)
+                        setOpen(false);
                     },
                     keyCode: 'enter',
                     text: 'Add',
@@ -224,26 +243,34 @@ const Journal = () => {
                   agenda: { type: 'day' }
               };
           }, []);
-    
-          const renderEventCalendar = React.useCallback((data) => {
-            return <React.Fragment>
+          
+          
+          const renderEventCalendar = useCallback((data) =>{
+            return  <>
                 <div>{data.title}</div>
+                <div>{data.tags}</div>
+                </>
+          })
+            
+                 {/* <div>{data.title}</div>
                 <div>
                     <Select selectMultiple={true} value={emotion} onChange={selectedChange} data={bonuses}>Emotions</Select>
-                </div>
+                </div> */  }
                 
-            </React.Fragment>
-        })
-
+            
+        
+        console.log(entriesArray)
         console.log(emotion)
         console.log(myEvents)
 
     return <div>
         <h3>My mood Journal</h3>
         <Eventcalendar
-            renderEventContent={renderEventCalendar}
+            renderEvent={renderEventCalendar}
+            // renderEventContent={entryData}
+
             view={view}
-            data={myEvents}
+            data={entriesArray}
             clickToCreate="double"
             dragToCreate={true}
             dragToMove={true}
