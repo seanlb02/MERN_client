@@ -1,28 +1,20 @@
 import React from 'react'
-import { Eventcalendar, snackbar, setOptions, Popup, Button, Input, Textarea, Switch, Datepicker } from '@mobiscroll/react';
+import { Eventcalendar, Select, snackbar, setOptions, Popup, Button, Input, Textarea, Switch, Datepicker } from '@mobiscroll/react';
+import {PostEntry} from '../API services (fetch functions)/entriesServices';
 
 setOptions({
     theme: 'ios',
     themeVariant: 'light'
 });
 
-const now = new Date();
+// const now = new Date();
 const defaultEvents = [{
     id: 1,
-    start: '2023-01-08T13:00',
-    end: '2023-01-08T13:45',
+    start: '',
+    end: '',
     title: 'Spilled Coffee',
     description: '',
-    allDay: false,
-    color: '#009788'
-}, {
-    id: 2,
-    start: '2023-01-26T15:00',
-    end: '2023-01-26T16:00',
-    title: 'Morning run',
-    description: '',
-    allDay: false,
-    color: '#f44437'
+    tags: ["joy","sad"]
 }];
 
 const responsivePopup = {
@@ -33,14 +25,7 @@ const responsivePopup = {
         touchUi: false
     }
 };
-const colorPopup = {
-    medium: {
-        display: 'anchored',
-        touchUi: false,
-        buttons: []
-    }
-}
-const colors = ['#ffeb3c', '#ff9900', '#f44437', '#ea1e63', '#9c26b0', '#3f51b5', '', '#009788', '#4baf4f', '#7e5d4e'];
+
 const Journal = () => {
     const [myEvents, setMyEvents] = React.useState(defaultEvents);
     const [tempEvent, setTempEvent] = React.useState(null);
@@ -49,41 +34,27 @@ const Journal = () => {
     const [anchor, setAnchor] = React.useState(null);
     const [start, startRef] = React.useState(null);
     const [end, endRef] = React.useState(null);
-    const [popupEventTitle, setTitle] = React.useState('');
-    const [popupEventDescription, setDescription] = React.useState('');
+    const [title, setTitle] = React.useState('');
+    const [description, setDescription] = React.useState('');
     const [popupEventAllDay, setAllDay] = React.useState(true);
     const [popupEventDate, setDate] = React.useState([]);
-    const [popupEventStatus, setStatus] = React.useState('busy');
-    const [mySelectedDate, setSelectedDate] = React.useState(now);
-    const [colorPickerOpen, setColorPickerOpen] = React.useState(false);
-    const [colorAnchor, setColorAnchor] = React.useState(null);
-    const [selectedColor, setSelectedColor] = React.useState('');
-    const [tempColor, setTempColor] = React.useState('');
-    const colorPicker = React.useRef();
-    const colorButtons = React.useMemo(() => [
-        'cancel',
-        {
-            text: 'Set',
-            keyCode: 'enter',
-            handler: () => {
-                setSelectedColor(tempColor);
-                setColorPickerOpen(false);
-            },
-            cssClass: 'mbsc-popup-button-primary'
-        }
-    ], [tempColor]);
+    // const [mySelectedDate, setSelectedDate] = React.useState(now);
+    const [emotion,setEmotion] = React.useState([])
 
+
+    const selectedChange = (ev) => {setEmotion(ev.value)}
+    const bonuses = ['joy', 'sad', 'anger','happy']
+    // const [newEntries, setNewEntries] = React.useState()
     const saveEvent = React.useCallback(() => {
         const newEvent = {
             id: tempEvent.id,
-            title: popupEventTitle,
-            description: popupEventDescription,
-            start: popupEventDate[0],
-            end: popupEventDate[1],
-            allDay: popupEventAllDay,
-            status: popupEventStatus,
-            color: tempEvent.color,
-            color: selectedColor
+            title: title,
+            description: description,
+            // start: popupEventDate[0],
+            start: '',
+            end: '',
+            tags: emotion,
+            allDay: popupEventAllDay
         };
         if (isEdit) {
             // update the event in the list
@@ -100,10 +71,10 @@ const Journal = () => {
             // here you can add the event to your storage as well
             // ...
         }
-        setSelectedDate(popupEventDate[0]);
+        // setSelectedDate(new Date());
         // close the popup
         setOpen(false);
-    }, [isEdit, myEvents, popupEventAllDay, popupEventDate, popupEventDescription, popupEventStatus, popupEventTitle, tempEvent, selectedColor]);
+    }, [isEdit, myEvents, popupEventAllDay, description, title, tempEvent, emotion]);
 
     const deleteEvent = React.useCallback((event) => {
         setMyEvents(myEvents.filter(item => item.id !== event.id));
@@ -123,9 +94,9 @@ const Journal = () => {
     const loadPopupForm = React.useCallback((event) => {
         setTitle(event.title);
         setDescription(event.description);
-        setDate([event.start, event.end]);
+        // setDate([event.start, event.end]);
         setAllDay(event.allDay || false);
-        setSelectedColor(event.color || '');
+        
     }, []);
 
     // handle popup form changes
@@ -153,9 +124,9 @@ const Journal = () => {
 
     // scheduler options
 
-    const onSelectedDateChange = React.useCallback((event) => {
-        setSelectedDate(event.date);
-    });
+    // const onSelectedDateChange = React.useCallback((event) => {
+    //     setSelectedDate(event.date);
+    // });
 
     const onEventClick = React.useCallback((args) => {
         setEdit(true);
@@ -221,7 +192,9 @@ const Journal = () => {
                 'cancel',
                 {
                     handler: () => {
-                        saveEvent();
+                        
+                        // saveEvent();
+                        PostEntry(title, description, emotion)
                     },
                     keyCode: 'enter',
                     text: 'Add',
@@ -239,24 +212,6 @@ const Journal = () => {
         setOpen(false);
     }, [isEdit, myEvents]);
 
-    const selectColor = React.useCallback((color) => {
-        setTempColor(color)
-    }, []);
-
-    const openColorPicker = React.useCallback((ev) => {
-        selectColor(selectedColor || '');
-        setColorAnchor(ev.currentTarget);
-        setColorPickerOpen(true);
-    }, [selectColor, selectedColor]);
-
-    const changeColor = React.useCallback((ev) => {
-        const color = ev.currentTarget.getAttribute('data-value');
-        selectColor(color);
-        if (!colorPicker.current.s.buttons.length) {
-            setSelectedColor(color);
-            setColorPickerOpen(false);
-        }
-    }, [selectColor, setSelectedColor]);
 
     const view = React.useMemo(() => {
               return {
@@ -264,18 +219,32 @@ const Journal = () => {
                   agenda: { type: 'day' }
               };
           }, []);
+    
+          const renderEventCalendar = React.useCallback((data) => {
+            return <React.Fragment>
+                <div>{data.title}</div>
+                <div>
+                    <Select selectMultiple={true} value={emotion} onChange={selectedChange} data={bonuses}>Emotions</Select>
+                </div>
+                
+            </React.Fragment>
+        })
+
+        console.log(emotion)
+        console.log(myEvents)
 
     return <div>
-        <h3>My Mood Journal</h3>
+        <h3>My mood Journal</h3>
         <Eventcalendar
+            renderEventContent={renderEventCalendar}
             view={view}
             data={myEvents}
             clickToCreate="double"
             dragToCreate={true}
             dragToMove={true}
             dragToResize={true}
-            selectedDate={mySelectedDate}
-            onSelectedDateChange={onSelectedDateChange}
+            // selectedDate={mySelectedDate}
+            // onSelectedDateChange={onSelectedDateChange}
             onEventClick={onEventClick}
             onEventCreated={onEventCreated}
             onEventDeleted={onEventDeleted}
@@ -293,59 +262,26 @@ const Journal = () => {
             responsive={responsivePopup}
         >
             <div className="mbsc-form-group">
-                <Input label="Title" value={popupEventTitle} onChange={titleChange} />
-                <Textarea label="Description" value={popupEventDescription} onChange={descriptionChange} />
+                <Input label="Title" value={title} onChange={titleChange} />
+                <Textarea label="Description" value={description} onChange={descriptionChange} />
             </div>
             <div className="mbsc-form-group">
                 <Switch label="All-day" checked={popupEventAllDay} onChange={allDayChange} />
-                <Input ref={startRef} label="Starts" />
-                <Input ref={endRef} label="Ends" />
+                {/* <Input ref={startRef} label="Starts" /> */}
+                {/* <Input ref={endRef} label="Ends" /> */}
                 <Datepicker
                     select="range"
                     controls={controls}
                     touchUi={true}
-                    startInput={start}
-                    endInput={end}
+                    // startInput={start}
+                    // endInput={end}
                     showRangeLabels={false}
                     responsive={respSetting}
                     onChange={dateChange}
-                    value={popupEventDate}
+                    // value={new Date()}
                 />
-                <div onClick={openColorPicker} className="event-color-c">
-                    <div className="event-color-label">Color</div>
-                    <div className="event-color" style={{ background: selectedColor }}></div>
-                </div>
+                <Select selectMultiple={true} value={emotion} onChange={selectedChange} data={bonuses}>Emotions</Select>
                 {isEdit ? <div className="mbsc-button-group"><Button className="mbsc-button-block" color="danger" variant="outline" onClick={onDeleteClick}>Delete event</Button></div> : null}
-            </div>
-        </Popup>
-        <Popup
-            display="bottom"
-            contentPadding={false}
-            showArrow={false}
-            showOverlay={false}
-            anchor={colorAnchor}
-            isOpen={colorPickerOpen}
-            buttons={colorButtons}
-            responsive={colorPopup}
-            ref={colorPicker}
-        >
-            <div className="crud-color-row">
-                {colors.map((color, index) => {
-                    if (index < 5) {
-                        return <div key={index} onClick={changeColor} className={"crud-color-c " + (tempColor === color ? 'selected' : '')} data-value={color}>
-                            <div className="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check" style={{ background: color }}></div>
-                        </div>
-                    } else return null;
-                })}
-            </div>
-            <div className="crud-color-row">
-                {colors.map((color, index) => {
-                    if (index >= 5) {
-                        return <div key={index} onClick={changeColor} className={"crud-color-c " + (tempColor === color ? 'selected' : '')} data-value={color}>
-                            <div className="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check" style={{ background: color }}></div>
-                        </div>
-                    } else return null;
-                })}
             </div>
         </Popup>
     </div>
