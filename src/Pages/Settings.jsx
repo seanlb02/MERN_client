@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import React from 'react';
+import {Modal, Button} from 'react-bootstrap'
 import { deleteAccount } from '../API services (fetch functions)/userServices';
 import { CheckTokenExpiration } from '../API services (fetch functions)/TokenServices';
 
@@ -8,8 +9,13 @@ import { CheckTokenExpiration } from '../API services (fetch functions)/TokenSer
 
 export default function Settings() {
 
+    const [show, setShow] = React.useState(true)
 
-    useEffect(() => {   
+    const handleShow = () => setShow(true)
+    const handleClose = () => setShow(false)
+
+
+    useEffect(() => {
         CheckTokenExpiration();
     },[]);
 
@@ -17,10 +23,24 @@ export default function Settings() {
 
     const showWarning = function() {
         return(
-            <div>
-                <div>Are you sure you want to delete your account?</div>
-                <button onClick={handleDelete}>Delete</button>
-            </div>
+            <>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Warning</Modal.Title>
+                    </Modal.Header>
+
+                    <Modal.Body>
+                        <p>Account will be permanently deleted</p>
+                    </Modal.Body>
+
+                    <Modal.Footer>
+                        <Button  variant="secondary" onClick={handleClose}>Close</Button>
+                        <Button variant="danger" onClick={()=> handleDelete(true)}>Permanently Delete Account</Button>
+
+                    </Modal.Footer>
+                </Modal>
+            </>
+
         )
     }
 
@@ -29,12 +49,27 @@ export default function Settings() {
     }
 
     return (
-        <div>
-                <section>
-                    <div onClick={() => setWarning(true)}>Delete Account</div>
-                    {warning ? showWarning() : <div></div>}
-                </section>
-               
+        <div
+        className='modal show'
+        style={{display: 'block', position: 'initial'}}
+        >
+            <Modal.Dialog>
+                <Modal.Header closeButton>
+                    <Modal.Title>Delete Account</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                    <p>Are you sure you want to delete account?</p>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    <Button variant="danger" onClick={() =>setWarning(true)}>Delete Account</Button>
+                    {warning ? showWarning():<div></div>}
+
+                </Modal.Footer>
+            </Modal.Dialog>
+
+
 
 
 
