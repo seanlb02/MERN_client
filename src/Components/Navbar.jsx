@@ -23,7 +23,7 @@ export default function Navigator() {
               <a className="nav-link" href="/journal">Home</a>
             </li>
             <li className="nav-item px-3">
-              <a className="nav-link" href="/graph">Graph</a>
+              <a className="nav-link" href="/mysummary">Graph</a>
             </li>
             <li className="nav-item px-3">
               <a className="nav-link" href="/questions">Weekly Check-in</a>

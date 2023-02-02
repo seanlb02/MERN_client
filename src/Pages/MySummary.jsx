@@ -3,7 +3,7 @@
 export default function UserSummary() {
     return(
     <div>
-        <div>logged in user summary</div>
+        <h3>Here's a summary of your mental wellbeing of late</h3>
     </div>
     )
 }
