@@ -30,10 +30,7 @@ export default function Friends() {
     const [tracker, setTracker] = useState("")
     const [error, setError] = useState("")
 
-// Jina, all we need to do now is map over the trackersArray and trackingArray and display each username 
-// one list/group/section for trackers, and one section below for tracking
 
-// the 'tracking' usernames will have a link that takes the user to their summary e.g. 'serene.com/summary/:username'
 
     const onSubmit = function(e) {
     e.preventDefault()
@@ -46,9 +43,7 @@ export default function Friends() {
 
 }
 
-    const renderTrackers = function () {
-        trackersArray.map(tracker => {<a href={`/summary/${tracker.user}`}>{tracker.user}</a>})
-    }
+
 
   return (
     <>
@@ -57,13 +52,13 @@ export default function Friends() {
             <Card.Header>Trackers</Card.Header>
             <Card.Body>
                
-                <Card.Text>
-                    {renderTrackers()}
+                <Card.Text className="d-flex flex-wrap gap-2 justify-content-center">
+                   
                     {trackersArray.map(tracker => <a href={`/summary/${tracker.user}`}><div>{tracker.user}</div></a>)}
                 </Card.Text>
-                <Form.Group className="mb-4">
+                <Form.Group className="d-flex mb-4 mt-4 justify-content-center">
                         <div>{error}</div>
-                        <input type="text" className="form-control" id="Inputtracker" name="username" onChange={(e) => { setTracker(e.target.value) }} placeholder="Enter username"></input>
+                        <input type="text" className="form-control w-50 d-flex justify-content-center" id="Inputtracker" name="username" onChange={(e) => { setTracker(e.target.value) }} placeholder="Enter username"></input>
                     </Form.Group>
                 <Button onClick={onSubmit} variant="primary">Authorise Tracker</Button>
             </Card.Body>
@@ -73,7 +68,7 @@ export default function Friends() {
             <Card.Body>
                
                 <Card.Text>
-                    
+                {trackingArray.map(tracked => <div>{tracked.user}</div>)}
                 </Card.Text>
               
             </Card.Body>
