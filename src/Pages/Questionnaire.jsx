@@ -3,25 +3,25 @@ import {addScore} from "../API services (fetch functions)/scoreServices"
 
 const Questionnaire = () => {
     const questions = [
-        {question: "About how often did you feel tired out of no good reason?",
+        {question: "Lately, how often have you felt tired out of no good reason?",
         choices: ["1", "2", "3", "4", "5"]}, 
-        {question: "About how often did you feel nervous?",
+        {question: "Lately, how often have you felt nervous?",
         choices: ["1", "2", "3", "4", "5"]},
-        {question: "About how often did you feel so nervous that nothing could calm you down?",
+        {question: "Lately, how often have you felt so nervous that nothing could calm you down?",
         choices: ["1", "2", "3", "4", "5"]},
-        {question: "About how often did you feel hopeless?",
+        {question: "Lately, how often have you felt hopeless?",
         choices: ["1", "2", "3", "4", "5"]},
-        {question: "About how often did you feel restless?",
+        {question: "Lately, how often have you felt restless?",
         choices: ["1", "2", "3", "4", "5"]},
-        {question: "About how often did you feel so restless you could not sit still?",
+        {question: "Lately, how often have you felt so restless you could not sit still?",
         choices: ["1", "2", "3", "4", "5"]},
-        {question: "About how often did you feel depressed?",
+        {question: "Lately, how often have you felt depressed?",
         choices: ["1", "2", "3", "4", "5"]},
-        {question: "About how often did you feel that everything was an effort?",
+        {question: "Lately, how often have you felt that everything was an effort?",
         choices: ["1", "2", "3", "4", "5"]},
-        {question: "About how often did you feel so sad that nothing could cheer you up?",
+        {question: "Lately, how often have you felt so sad that nothing could cheer you up?",
         choices: ["1", "2", "3", "4", "5"]},
-        {question: "About how often did you feel worthless?",
+        {question: "Lately, how often have you felt worthless?",
         choices: ["1", "2", "3", "4", "5"]}
       ]
       const [showResults, setShowResults] = useState(false);
@@ -93,10 +93,11 @@ const Questionnaire = () => {
               return (
                 <>
                   
-                    <h3>{item.question}</h3>
+                    <h3 className="mb-4">{item.question}</h3>
                     <form className="choices">
-                      <div>
+                      <div className="d-flex justify-content-center gap-5">
                         <label>
+                          <h5>None of the time</h5>
                           <input
                             type="radio"
                             name="choice"
@@ -104,51 +105,50 @@ const Questionnaire = () => {
                             checked={selections[index] === 1}
                             onChange={() => handleChange(1, index)}
                           />
-                          <span>None of the time</span>
                         </label>
                       
                         <label>
+                        <h5>A little of the time</h5>
                           <input
                             type="radio"
                             name="choice"
                             value={item.choices[1]}
                             checked={selections[index] === 2}
                             onChange={() => handleChange(2, index)}
-                          />
-                          <span>A little of the time</span>
+                          />                        
                         </label>
                       
                         <label>
+                        <h5>Some of the time</h5>
                           <input
                             type="radio"
                             name="choice"
                             value={item.choices[2]}
                             checked={selections[index] === 3}
                             onChange={() => handleChange(3, index)}
-                          />
-                          <span>Some of the time</span>
+                          />                         
                         </label>
                       
                         <label>
+                        <h5>Most of the time</h5>
                           <input
                             type="radio"
                             name="choice"
                             value={item.choices[3]}
                             checked={selections[index] === 4}
                             onChange={() => handleChange(4, index)}
-                          />
-                          <span>Most of the time</span>
+                          />                         
                         </label>
                       
                         <label>
+                        <h5>All of the time</h5>
                           <input
                             type="radio"
                             name="choice"
                             value={item.choices[4]}
                             checked={selections[index] === 5}
                             onChange={() => handleChange(5, index)}
-                          />
-                          <span>All of the time</span>
+                          />                        
                         </label>
                       </div>
                     </form>

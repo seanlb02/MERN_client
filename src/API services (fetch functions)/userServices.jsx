@@ -18,6 +18,22 @@ import { LogOut } from "./authServices"
         return res.json()
     }
 
+    export const editMemo = async function (memo) {
+        const token = (JSON.parse(localStorage.getItem("tokenKey").replaceAll("", '')))
+        const reqBody = ({memo: `${memo}`})
+        const res = await fetch(`https://grouchy-vessel-production.up.railway.app/users/memo/update`, {
+            method: 'PATCH',
+            headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify(reqBody)
+        })
+        return res.json()
+
+        
+    }
+
 
     export const deleteAccount = async function () {
         const token = (JSON.parse(localStorage.getItem("tokenKey").replaceAll("", '')))

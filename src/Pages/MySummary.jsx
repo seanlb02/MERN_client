@@ -31,6 +31,7 @@ export default function UserSummary() {
     })
 
 
+
     // console.log(emotionsTag)
     // const emotional_tags = ["joy", "anger", "joy", "joy", "anger","sad"]
     let countJoy = 0
@@ -128,7 +129,6 @@ export default function UserSummary() {
         </Row>
     </Container>
  
-
     <h4 className="content-align-center mt-5">Your wellbeing scores over the past 30 days</h4>
  
   </>

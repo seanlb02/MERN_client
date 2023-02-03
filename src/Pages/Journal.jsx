@@ -36,13 +36,14 @@ const newEvent = {
     description: description,
     tags: emotion
 }
-const saveEvent = ((e) => {
+const saveEvent = async function(e) {
     e.preventDefault();
     setMyEvents([newEvent]);
     setShow(false)
     setShowItems(true)
-    PostEntry(title, description, emotion)
-})
+    await PostEntry(title, description, emotion)
+    window.location.reload();
+}
 
 const handleEmotion = ((e) => {
     if(e.target.checked){
