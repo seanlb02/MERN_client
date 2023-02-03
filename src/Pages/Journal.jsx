@@ -38,7 +38,7 @@ const newEvent = {
 }
 const saveEvent = ((e) => {
     e.preventDefault();
-    setMyEvents([...myEvents,newEvent]);
+    setMyEvents([newEvent]);
     setShow(false)
     setShowItems(true)
     PostEntry(title, description, emotion)
@@ -52,6 +52,7 @@ const handleEmotion = ((e) => {
 
 
 console.log(myEvents)
+console.log(emotion)
   return (
       <>
         <div>Journal</div>
