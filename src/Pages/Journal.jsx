@@ -38,7 +38,7 @@ const newEvent = {
 }
 const saveEvent = async function(e) {
     e.preventDefault();
-    setMyEvents([...myEvents,newEvent]);
+    setMyEvents([newEvent]);
     setShow(false)
     setShowItems(true)
     await PostEntry(title, description, emotion)
@@ -53,6 +53,7 @@ const handleEmotion = ((e) => {
 
 
 console.log(myEvents)
+console.log(emotion)
   return (
       <>
         <div>Journal</div>
