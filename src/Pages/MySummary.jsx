@@ -84,7 +84,6 @@ export default function UserSummary() {
         );
 };
 
-    // const userscores = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page B', uv: 600, pv: 2400, amt: 2400},{name: 'Page B', uv: 800, pv: 2400, amt: 2400}]
     const [scoresArray, setScoresArray] = useState("");
 //    console.log(scoresArray.reverse())
     console.log(scoresArray)
@@ -151,23 +150,23 @@ export default function UserSummary() {
             </Col>
         </Row>
         <Row className="mt-5 mb-5 text-align-left">
-            <Col lg={3} ><h4 >Monthly Moods</h4></Col>
+            <Col lg={3} ><h4 >Monthly Wellbeing</h4></Col>
         </Row>
         <Row style={{marginBottom: "100px"}}>
             <Col lg={7} style={{backgroundColor: "#F9FAFD"}} className="pt-5">
             
-            <LineChart  width={450} height={400} data={scoresArray} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+            <LineChart  width={500} height={400} data={scoresArray} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                 <Line type="monotone" dataKey="score" stroke="#8884d8" />
         
-                <XAxis  label={{ value: 'Last Month', angle: 0, position: 'center' }} tick={false} />
+                <XAxis  label={{ value: 'The Last 30 days', angle: 0, position: 'center' }} tick={false} />
                 <YAxis type="number" domain={[10,50]} label={{ value: 'Scores', angle: -90, position: 'insideLeft' }}/>
             </LineChart>
             </Col>
             <Col lg={5} className=' d-flex align-items-center justify-content-center ' >
                 <div>
-                    <h3 className='mt-5' style={{color: "#8F99EA"}}><strong>Your mood through the last month</strong></h3>
+                    <h3 className='mt-5' style={{color: "#8F99EA"}}><strong>Your wellbeing through the last month</strong></h3>
                    <p>Life can be full of ups and downs. While this graph may help you to understand your recent states over the period of time. Have a look how this month has been for you.</p>
-                   <p>This graph defines the scores that you have achieved over the last 30 days.</p>
+                   <p>This graph defines the wellbeing scores that you have recorded over the last 30 days.</p>
  
                 </div>
             </Col>

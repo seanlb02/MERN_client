@@ -26,3 +26,15 @@ export async function getMonthsTag(){
     return res.json()
 }
 
+export async function getUserDayTags(username) {
+    const token = (JSON.parse(localStorage.getItem("tokenKey").replaceAll("", '')));
+   const res = await fetch(`https://grouchy-vessel-production.up.railway.app/entries/tags/day/${username}`, {
+    method: 'GET',
+    headers: {
+        'Content-type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+    },
+   })
+   return res.json()
+}
+
