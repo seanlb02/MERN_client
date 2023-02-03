@@ -54,7 +54,7 @@ export default function Friends() {
                
                 <Card.Text className="d-flex flex-wrap gap-2 justify-content-center">
                    
-                    {trackersArray.map(tracker => <div className="border border-secondary p-1 px-3 rounded-pill">{tracker.user}<span className="ms-3" onClick={() => {revokeTracker(tracker.user)}}><strong>X</strong></span></div>)}
+                    {trackersArray.map(tracker => <div className="border border-secondary p-1 px-3 rounded-pill">{tracker.user}<span className="ms-3 cursor-pointer text-danger" onClick={() => {revokeTracker(tracker.user)}}><strong className="cursor-pointer">X</strong></span></div>)}
                 </Card.Text>
                 <Form.Group className=" mb-4 mt-4 d-flex flex-column justify-content-center">
                         <div>{error}</div>
@@ -70,7 +70,7 @@ export default function Friends() {
             <Card.Body>
                
                 <Card.Text className="d-flex flex-wrap gap-2 justify-content-center">
-                {trackingArray.map(tracker => <a className="text-white text-decoration-none" href={`/summary/${tracker.user}`}><div className="border border-success p-1 px-3  bg-success bg-gradient rounded-pill">{tracker.user}</div></a>)}
+                {trackingArray.map(tracker => <a className="text-white text-decoration-none" href={`/summary/${tracker.user}`}><div className="border border-success p-1 px-3 text-white bg-warning cursor-pointer rounded-pill">{tracker.user}</div></a>)}
                 </Card.Text>
               
             </Card.Body>

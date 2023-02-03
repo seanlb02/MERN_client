@@ -54,8 +54,17 @@ export async function revokeTracker(username) {
     })
     window.location.reload()
     return res.json()
-    
-    
 }
 
+export async function validateTracker(username) {
+    const token = (JSON.parse(localStorage.getItem("tokenKey").replaceAll("", '')))
+    const res = await fetch(`https://grouchy-vessel-production.up.railway.app/track/validate/${username}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+        }
+    })
+    return res.json()
+}
     
