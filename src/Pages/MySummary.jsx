@@ -8,7 +8,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis,PieChart, Pie, Cell, Respo
 import { getTodaysTag} from '../API services (fetch functions)/tagsServices';
 import { Container, Row, Col } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup'
-
+import '../App.css'
 
 
 
@@ -32,8 +32,6 @@ export default function UserSummary() {
 
 
 
-    // console.log(emotionsTag)
-    // const emotional_tags = ["joy", "anger", "joy", "joy", "anger","sad"]
     let countJoy = 0
     let countAnger = 0
     let countSad = 0
@@ -61,7 +59,16 @@ export default function UserSummary() {
 
 
 
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#00BB30'];
+    const COLORS = ['#8F99EA', '#E88B8C', '#EFA58D', '#7EC6E7'];
+    const styled = {
+        listStyleType: 'none'
+    }
+    const emotionbutton={
+        height: "15px",
+        width: "15px",
+        backgroundColor: "red",
+        marginRight: "10px"
+    }
 
     const RADIAN = Math.PI / 180;
     // const RADIAN = Math.PI / 180;
@@ -76,26 +83,52 @@ export default function UserSummary() {
             </text>
         );
 };
+
     // const userscores = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page B', uv: 600, pv: 2400, amt: 2400},{name: 'Page B', uv: 800, pv: 2400, amt: 2400}]
     const [scoresArray, setScoresArray] = useState("");
+//    console.log(scoresArray.reverse())
     console.log(scoresArray)
     return(
         <>
 
     <Container>
         <Row>
-            <Col><h3>Here's a summary of your mental wellbeing of late</h3></Col>
+            <Col><h2 style={{color: "#8F99EA"}} className="mt-5"><strong>Here's a summary of your Mental Wellbeing of late</strong></h2></Col>
         </Row>
-        <Row>
-            <Col sm={6}>
-                <PieChart width={600} height={400}>
+        <Row className="mt-5 mb-5 text-align-left">
+            <Col lg={2} ><h4 >Daily Moods</h4></Col>
+        </Row>
+        <Row style={{marginBottom: "150px"}}>
+            <Col lg={7} style={{backgroundColor: "#F9FAFD"}}>
+
+                <div className='mt-5 d-flex justify-content-center align-items-center'>
+                    
+                        <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
+                            <div className="emotionButton mr-2" style={{backgroundColor:"#8F99EA"}}></div>
+                            <div>Joy</div>
+                        </div>
+                        <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
+                            <div className="emotionButton mr-2" style={{backgroundColor:"#E88B8C"}}></div>
+                            <div>Anger</div>
+                        </div>
+                        <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
+                            <div className="emotionButton mr-2" style={{backgroundColor:"#EFA58D"}}></div>
+                            <div>Sad</div>
+                        </div>
+                        <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
+                            <div className="emotionButton mr-2" style={{backgroundColor:"#7EC6E7"}}></div>
+                            <div>Happy</div>
+                        </div>
+                        
+                </div>
+                <PieChart width={400} height={300} >
                     <Pie
                         data={data}
-                        cx="50%"
+                        cx="70%"
                         cy="50%"
                         labelLine={false}
                         label={renderCustomizedLabel}
-                        outerRadius={80}
+                        outerRadius={120}
                         fill="#8884d8"
                         dataKey="value"
                     >
@@ -106,30 +139,43 @@ export default function UserSummary() {
                         ))}
                     </Pie>
             </PieChart>
+
+ 
             </Col>
-            <Col sm={6}>
-                   <h5 className='mt-5'>Daily emotions</h5>
-                   <ListGroup>
-                        <ListGroup.Item style={{color:"#0088FE"}}>Joy</ListGroup.Item>
-                        <ListGroup.Item style={{color: "#00C49F"}}>Happy</ListGroup.Item>
-                        <ListGroup.Item style={{color: "#FFBB28"}}>Sad</ListGroup.Item>
-                        <ListGroup.Item style={{color: "#00BB30"}}>Angry</ListGroup.Item>
-                    </ListGroup>
+            <Col lg={5} className=' d-flex align-items-center justify-content-center' >
+                <div>
+                    <h3 className='mt-5' style={{color: "#8F99EA"}}><strong>Your Moods Today</strong></h3>
+                   <p >Let's have a look at you moods throughout today. Looks like you've been feeling joy,anger,sad and happy today. Take a moment to reflect your day.</p>
+                   <p>This chart will help you to understand that how significantly these emotions can affect you feelings,thinking process and interaction with others.</p>
+                </div>
             </Col>
         </Row>
-        <Row>
-            <Col>
-            <LineChart width={700} height={400} data={scoresArray} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+        <Row className="mt-5 mb-5 text-align-left">
+            <Col lg={3} ><h4 >Monthly Moods</h4></Col>
+        </Row>
+        <Row style={{marginBottom: "100px"}}>
+            <Col lg={7} style={{backgroundColor: "#F9FAFD"}} className="pt-5">
+            
+            <LineChart  width={450} height={400} data={scoresArray} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                 <Line type="monotone" dataKey="score" stroke="#8884d8" />
         
-                <XAxis  tick={false}/>
-                <YAxis type="number" domain={[10,50]}/>
+                <XAxis  label={{ value: 'Last Month', angle: 0, position: 'center' }} tick={false} />
+                <YAxis type="number" domain={[10,50]} label={{ value: 'Scores', angle: -90, position: 'insideLeft' }}/>
             </LineChart>
             </Col>
+            <Col lg={5} className=' d-flex align-items-center justify-content-center ' >
+                <div>
+                    <h3 className='mt-5' style={{color: "#8F99EA"}}><strong>Your mood through the last month</strong></h3>
+                   <p>Life can be full of ups and downs. While this graph may help you to understand your recent states over the period of time. Have a look how this month has been for you.</p>
+                   <p>This graph defines the scores that you have achieved over the last 30 days.</p>
+ 
+                </div>
+            </Col>
         </Row>
+
     </Container>
  
-    <h4 className="content-align-center mt-5">Your wellbeing scores over the past 30 days</h4>
+
  
   </>
     )
