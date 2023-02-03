@@ -41,4 +41,37 @@
     color:#6486DD !important
 }
 
+div {
+    color: #10275A !important
+
+}
+
+#cardheader {
+    background-color: rgba(143, 153, 235, 0.70) ;
+
+}
+
+#cardbody {
+    background-color:rgba(211, 219, 255, 0.50);
+}
+
+#cardfooter {
+    background-color: rgba(211, 219, 255, 0.50);
+}
+
+#addeventbtn {
+    position:'float';
+    width: 60px;
+    height:60px;
+    background-color:#6486DD;
+    color:#fff;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+
+}
+
+.myfloat {
+    margin-top:22px
+}
 
