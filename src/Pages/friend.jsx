@@ -32,15 +32,17 @@ export default function Friends() {
 
 
 
-    const onSubmit = function(e) {
+    const onSubmit = async function(e) {
     e.preventDefault()
     authoriseTracker(tracker)
     .then(res => {
         // if fetch response has an error code, issue an alert pop-up
             if (!res.ok){
                 setError("Oops, looks like that user does not exist, or they are already tracking you")
-            window.location.reload()
-        }});
+            }
+            
+        }).then(() => {window.location.reload()})
+    
 
 }
 
