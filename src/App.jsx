@@ -15,7 +15,7 @@ import Questionnaire from './Pages/Questionnaire'
 import Trackedsummary from './Pages/Trackedsummary'
 import MySummary from './Pages/MySummary'
 import Friends from './Pages/friend'
-
+import NotFound from './Pages/NotFound'
 import Settings from './Pages/Settings'
 
 
@@ -48,6 +48,7 @@ export default function App() {
         <Route path="/mysummary" element={<MySummary/>}/>
         <Route path="/track" element={<Friends />} />
         <Route path="/settings" element={<Settings/>}/>
+        <Route path='*' element={<NotFound />}/>
 
       </Routes>
     </>
