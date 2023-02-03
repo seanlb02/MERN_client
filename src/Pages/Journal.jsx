@@ -36,7 +36,7 @@ const Journal = () => {
   }
   const saveEvent = async function (e) {
     e.preventDefault();
-    setMyEvents([...myEvents, newEvent]);
+    setMyEvents([newEvent]);
     setShow(false)
     setShowItems(true)
     await PostEntry(title, description, emotion)
@@ -50,7 +50,10 @@ const Journal = () => {
   })
 
 
-  console.log(myEvents)
+
+console.log(myEvents)
+console.log(emotion)
+
   return (
     <>
       <h1>Journal</h1>

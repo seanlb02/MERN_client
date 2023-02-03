@@ -32,15 +32,17 @@ export default function Friends() {
 
 
 
-    const onSubmit = function(e) {
+    const onSubmit = async function(e) {
     e.preventDefault()
     authoriseTracker(tracker)
     .then(res => {
         // if fetch response has an error code, issue an alert pop-up
             if (!res.ok){
                 setError("Oops, looks like that user does not exist, or they are already tracking you")
-            window.location.reload()
-        }});
+            }
+            
+        }).then(() => {window.location.reload()})
+    
 
 }
 
@@ -55,12 +57,12 @@ export default function Friends() {
                
                 <Card.Text className="d-flex flex-wrap gap-2 justify-content-center">
                    
-                    {trackersArray.map(tracker => <a href={`/summary/${tracker.user}`}><div>{tracker.user}</div></a>)}
+                    {trackersArray.map(tracker => <a className="text-white text-decoration-none" href={`/summary/${tracker.user}`}><div className="border border-success p-1 px-3  bg-success bg-gradient rounded-pill">{tracker.user}</div></a>)}
                 </Card.Text>
                 <Form.Group className=" mb-4 mt-4 d-flex flex-column justify-content-center">
                         <div>{error}</div>
 
-                        <input type="text" className="form-control d-flex col-6 mx-autojustify-content-center" id="Inputtracker" name="username" onChange={(e) => { setTracker(e.target.value) }} placeholder="Enter username"></input>
+                        <input type="text" className="form-control d-flex col-6 mx-auto justify-content-center" id="Inputtracker" name="username" onChange={(e) => { setTracker(e.target.value) }} placeholder="Enter username"></input>
                     </Form.Group>
                 <Button onClick={onSubmit} variant="primary">Authorise Tracker</Button>
             </Card.Body>
