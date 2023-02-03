@@ -26,6 +26,21 @@ export async function addScore(score) {
     return res.json()
 }
 
+export async function getMonthScores() {
+    const token = (JSON.parse(localStorage.getItem("tokenKey").replaceAll("", '')))
+    const res = await fetch(`https://grouchy-vessel-production.up.railway.app/scores/month`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+        }
+    })
+    return res.json()
+} 
+
+
+// fetch a tracked uers scores:
+
 export async function getUserScore(user) {
     const token = (JSON.parse(localStorage.getItem("tokenKey").replaceAll("", '')))
     const res = await fetch(`https://grouchy-vessel-production.up.railway.app/scores/latest/${user}`, {
