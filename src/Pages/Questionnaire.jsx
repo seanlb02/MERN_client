@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import {addScore} from "../API services (fetch functions)/scoreServices"
 
 const Questionnaire = () => {
     const questions = [
@@ -52,7 +52,7 @@ const Questionnaire = () => {
         // console.log(score)
         event.preventDefault();
         setShowResults(true)
-      
+        addScore(score)
         // setFinalScore(score)
         // console.log(finalScore)
  
