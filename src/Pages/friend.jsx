@@ -39,6 +39,7 @@ export default function Friends() {
         // if fetch response has an error code, issue an alert pop-up
             if (!res.ok){
                 setError("Oops, looks like that user does not exist, or they are already tracking you")
+            window.location.reload()
         }});
 
 }
