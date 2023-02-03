@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom"
 
-import React from 'react';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
+import {React, useState, useEffect} from 'react'
 export default function TrackedSummary() {
 
 const { username } = useParams() 
  
-
+const [scoresArray, setScoresArray] = useState([])
 
     return (
         <>
