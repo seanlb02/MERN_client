@@ -37,11 +37,10 @@ export default function Friends() {
     authoriseTracker(tracker)
     .then(res => {
         // if fetch response has an error code, issue an alert pop-up
-            if (!res.ok){
-                setError("Oops, looks like that user does not exist, or they are already tracking you")
+            if (res.status != 200){
+                setError("One moment, checking on user")
                 window.location.reload()
             }
-        
         })
     
 }

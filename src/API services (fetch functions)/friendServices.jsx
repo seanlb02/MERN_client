@@ -51,9 +51,11 @@ export async function revokeTracker(username) {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
         }
-    }).then((res) => res.json())
-    .then((data) => console.log(data))
-    .then(() => {window.location.reload()})
+    })
+    window.location.reload()
+    return res.json()
+    
+    
 }
 
     
