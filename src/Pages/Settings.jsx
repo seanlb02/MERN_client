@@ -11,8 +11,11 @@ export default function Settings() {
 
     const [show, setShow] = React.useState(true)
 
+    const reload = () => window.location.reload()
     const handleShow = () => setShow(true)
-    const handleClose = () => setShow(false)
+    const handleClose = () => {setShow(false)
+        reload();}
+
 
 
     useEffect(() => {
