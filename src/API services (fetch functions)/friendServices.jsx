@@ -42,3 +42,18 @@ export async function authoriseTracker(username) {
     
 
 }
+
+export async function revokeTracker(username) {
+    const token = (JSON.parse(localStorage.getItem("tokenKey").replaceAll("", '')))
+    const res = await fetch(`https://grouchy-vessel-production.up.railway.app/track/revoke/${username}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+        }
+    }).then((res) => res.json())
+    .then((data) => console.log(data))
+    .then(() => {window.location.reload()})
+}
+
+    

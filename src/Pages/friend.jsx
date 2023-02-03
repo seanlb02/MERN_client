@@ -1,6 +1,6 @@
 import {Card, Button, InputGroup, Form} from 'react-bootstrap'
 import {React, useState, useEffect} from 'react'
-import { authoriseTracker, listTrackers, listTracking } from '../API services (fetch functions)/friendServices';
+import { authoriseTracker, listTrackers, listTracking, revokeTracker } from '../API services (fetch functions)/friendServices';
 import { CheckTokenExpiration } from '../API services (fetch functions)/TokenServices';
 
 
@@ -32,21 +32,19 @@ export default function Friends() {
 
 
 
-    const onSubmit = async function(e) {
+    const onSubmit = function(e) {
     e.preventDefault()
     authoriseTracker(tracker)
     .then(res => {
         // if fetch response has an error code, issue an alert pop-up
             if (!res.ok){
                 setError("Oops, looks like that user does not exist, or they are already tracking you")
+                window.location.reload()
             }
-            
-        }).then(() => {window.location.reload()})
+        
+        })
     
-
 }
-
-
 
   return (
     <>
@@ -57,7 +55,7 @@ export default function Friends() {
                
                 <Card.Text className="d-flex flex-wrap gap-2 justify-content-center">
                    
-                    {trackersArray.map(tracker => <a className="text-white text-decoration-none" href={`/summary/${tracker.user}`}><div className="border border-success p-1 px-3  bg-success bg-gradient rounded-pill">{tracker.user}</div></a>)}
+                    {trackersArray.map(tracker => <div className="border border-secondary p-1 px-3 rounded-pill">{tracker.user}<span className="ms-3" onClick={() => {revokeTracker(tracker.user)}}><strong>X</strong></span></div>)}
                 </Card.Text>
                 <Form.Group className=" mb-4 mt-4 d-flex flex-column justify-content-center">
                         <div>{error}</div>
@@ -72,8 +70,8 @@ export default function Friends() {
             <Card.Header>Tracking</Card.Header>
             <Card.Body>
                
-                <Card.Text>
-                {trackingArray.map(tracked => <div>{tracked.user}</div>)}
+                <Card.Text className="d-flex flex-wrap gap-2 justify-content-center">
+                {trackingArray.map(tracker => <a className="text-white text-decoration-none" href={`/summary/${tracker.user}`}><div className="border border-success p-1 px-3  bg-success bg-gradient rounded-pill">{tracker.user}</div></a>)}
                 </Card.Text>
               
             </Card.Body>
