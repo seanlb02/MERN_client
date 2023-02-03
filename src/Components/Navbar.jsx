@@ -26,10 +26,10 @@ export default function Navigator() {
               <a className="nav-link" href="/mysummary">Summary</a>
             </li>
             <li className="nav-item px-3">
-              <a className="nav-link" href="/questions">Check-in</a>
+              <a className="nav-link" href="/checkin">Check-in</a>
             </li>
             <li className="nav-item px-3">
-              <a className="nav-link" href="/friends">Track</a>
+              <a className="nav-link" href="/track">Track</a>
             </li>
             <li className="nav-item px-3">
               <a className="nav-link" href="/settings">Settings</a>

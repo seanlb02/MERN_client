@@ -43,10 +43,10 @@ export default function App() {
         <Route path="/journal" element={<Journal/>}/>
         <Route path= "/login" element = {<Login/>}/>
         <Route path= "/register" element = {<Register/>}/>
-        <Route path="/questions" element={<Questionnaire/>}/>
+        <Route path="/checkin" element={<Questionnaire/>}/>
         <Route path= "/summary/:username" element={<Trackedsummary/>}/>
         <Route path="/mysummary" element={<MySummary/>}/>
-        <Route path="/friends" element={<Friends />} />
+        <Route path="/track" element={<Friends />} />
         <Route path="/settings" element={<Settings/>}/>
 
       </Routes>
