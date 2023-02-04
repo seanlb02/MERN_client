@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import React from 'react';
 import {Modal, Button} from 'react-bootstrap'
 import { deleteAccount } from '../API services (fetch functions)/userServices';
-import { CheckTokenExpiration } from '../API services (fetch functions)/TokenServices';
+import { CheckTokenExpiration } from '../API services (fetch functions)/tokenServices';
 
 
 

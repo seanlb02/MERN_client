@@ -1,7 +1,7 @@
 import {Card, Button, InputGroup, Form} from 'react-bootstrap'
 import {React, useState, useEffect} from 'react'
 import { authoriseTracker, listTrackers, listTracking, revokeTracker } from '../API services (fetch functions)/friendServices';
-import { CheckTokenExpiration } from '../API services (fetch functions)/TokenServices';
+import { CheckTokenExpiration } from '../API services (fetch functions)/tokenServices';
 
 
 

@@ -3,7 +3,7 @@
 
 import {React, useState, useEffect} from 'react'
 import { getMonthScores } from '../API services (fetch functions)/scoreServices';
-import { CheckTokenExpiration } from '../API services (fetch functions)/TokenServices';
+import { CheckTokenExpiration } from '../API services (fetch functions)/tokenServices';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis,PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { getTodaysTag} from '../API services (fetch functions)/tagsServices';
 import { Container, Row, Col } from 'react-bootstrap';
