@@ -59,13 +59,13 @@ const memo = dataArray.map(el=>el.memo)
 const [newMemo, setNewMemo] = useState("");
 
 
-// submitting a new memo to the database 
+// submitting a new memo to the database
 const onMemoSubmit = async function (e) {
     e.preventDefault();
     await editMemo(newMemo);
     window.location.reload();
 
-  
+
 
 }
 
@@ -74,24 +74,24 @@ console.log(emotion)
 
   return (
     <>
-      <Container className="d-flex mb-5 flex-column w-50">
+      <Container className="d-flex mb-5 flex-column justify-content-center">
       <h1 className="mt-5 mb-4 text-left">Hey {dataArray.map(el=>el.username)}!</h1>
         <form>
         <Card >
-          
-            <Card.Body className="text-left">
-              
-              <textarea id="textarea" placeholder={memo} rows="4" cols="80" onChange={(e) => setNewMemo(e.target.value)}></textarea>
-              
+
+            <Card.Body className="d-flex text-left">
+
+              <textarea className="overflow-wrap-break-word"id="textarea" placeholder={memo} rows="4" cols="80" onChange={(e) => setNewMemo(e.target.value)}></textarea>
+
             </Card.Body>
-            
-          
+
+
         </Card>
         <button className="btn btn-primary btn-md round mt-2 float-left" onClick={onMemoSubmit}>Update memo</button>
         </form>
       </Container>
-      <Button className="float mb-4" id="addeventbtn"  ref={target} onClick={() => setShow(!show)}>
-        <i class="fa fa-plus my-float"></i>
+      <Button className="btn btn-primary btn-md round mb-3"   ref={target} onClick={() => setShow(!show)}>
+        Add New Entry  <i class="fa fa-plus my-float"></i>
       </Button>
 
 
