@@ -13,3 +13,8 @@
         background-color: red;
 
 }
+
+#textarea {
+  resize:none;
+  border:none;
+}
