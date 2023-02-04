@@ -11,7 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Navigator() {
 
-  useEffect(() => {   
+  useEffect(() => {
     if(localStorage.getItem("tokenKey") != null) {
       setLoggedIn(true)
     }
@@ -26,36 +26,36 @@ export default function Navigator() {
     <>
 
 
-{ loggedIn ? 
+{ loggedIn ?
 
     <nav className="navbar navbar-expand-lg navbar light">
-        <a className="navbar-brand" href="#"><img src="src/assets/logo.png" alt= "logo"></img></a>
+          <a className="navbar-brand" href="#"><img src="src/assets/logo.png" alt= "logo"></img></a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <i className ="fa fa-bars"></i>
       </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item active px-3">
-              <a className="nav-link" href="/journal">Profile</a>
+                <a className="nav-link" id="navlink" href="/journal">Profile</a>
             </li>
             <li className="nav-item px-3">
-              <a className="nav-link" href="/mysummary">Summary</a>
+                <a className="nav-link" id="navlink" href="/mysummary">Summary</a>
             </li>
             <li className="nav-item px-3">
-              <a className="nav-link" href="/checkin">Check-in</a>
+                <a className="nav-link" id="navlink" href="/checkin">Check-in</a>
             </li>
             <li className="nav-item px-3">
-              <a className="nav-link" href="/track">Track</a>
+                <a className="nav-link" id="navlink" href="/track">Track</a>
             </li>
             <li className="nav-item px-3">
-              <a className="nav-link" href="/settings">Settings</a>
+                <a className="nav-link" id="navlink" href="/settings">Settings</a>
           </li>
             <li className="nav-item px-3">
-              <a className="nav-link" onClick={LogOut} href="/">Log-out</a>
+                <a className="nav-link" id="navlink" onClick={LogOut} href="/">Log-out</a>
             </li>
         </ul>
       </div>
-    </nav> 
+    </nav>
 
     :
 

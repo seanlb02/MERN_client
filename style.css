@@ -4,7 +4,7 @@
     font-family: 'Hind Siliguri', sans-serif;
 }
 
-.nav-link {
+#navlink {
     font-size: 16px;
     margin: 3px;
     color:#6486DD!important;
@@ -23,7 +23,7 @@
     color:#6486DD !important;
     font-size: 26px;
 }
-.nav-link:hover {
+#navlink:hover {
     border-bottom: 1px solid #F77E49
 }
 .navbar-brand img {
@@ -48,15 +48,18 @@ div {
 
 #cardheader {
     background-color: rgba(143, 153, 235, 0.70) ;
+    text-align: left
 
 }
 
 #cardbody {
-    background-color:rgba(211, 219, 255, 0.50);
+    background-color:#F9FAFD;
+    text-align: left
 }
 
 #cardfooter {
-    background-color: rgba(211, 219, 255, 0.50);
+    background-color: #F9FAFD;
+    text-align: left
 }
 
 #addeventbtn {
@@ -78,4 +81,11 @@ div {
 .emotionColor{
     height: 6px;
     width: 6px
+}
+
+#badge {
+    font-size: 15px;
+    font-weight: 300;
+    background-color: rgba(211, 219, 255, 0.70) !important
+
 }
