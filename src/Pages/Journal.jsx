@@ -1,5 +1,5 @@
 import React, { useId, useState, useRef, useEffect } from 'react'
-import { Overlay, Button, Form, Card, Container } from 'react-bootstrap'
+import { Overlay, Button, Form, Card, Container, Badge } from 'react-bootstrap'
 import { getEntries, PostEntry } from '../API services (fetch functions)/entriesServices';
 import { CheckTokenExpiration } from '../API services (fetch functions)/TokenServices';
 
@@ -26,7 +26,7 @@ const Journal = () => {
   const [showItems, setShowItems] = React.useState(false)
 
 
-  const reactions = ['joy', 'sad', 'anger', 'happy']
+  const reactions = ['Joy', 'Sad', 'Anger', 'Happy']
 
   const newEvent = {
     id: useId(),
@@ -62,12 +62,12 @@ console.log(emotion)
       </Button>
 
 
-      {entriesArray.map(entry =>
+      {entriesArray.map((entry, i) =>
       <Container>
         <Card className="d-flex justify-content-center mb-4">
-        <Card.Header id="cardheader"> {entry.title}</Card.Header>
-        <Card.Body id="cardbody">{entry.description}</Card.Body>
-        <Card.Footer id="cardfooter"> {entry.tags}</Card.Footer>
+        <Card.Header id="cardheader"> <h3>{entry.title}</h3></Card.Header>
+        <Card.Body id="cardbody" className="">{entry.text}</Card.Body>
+        <Card.Footer id="cardfooter" className="d-flex p-0"> <h4>{entry.tags.map(el => <Badge id= "badge" className="m-1"><div> {el}</div></Badge>)}</h4></Card.Footer>
         </Card>
       </Container>
       )}
