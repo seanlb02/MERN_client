@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // Check if token is expired 
 
-export default function CheckTokenExpiration() {
+export function CheckTokenExpiration() {
     // 1. Get token from local storage 
     if(localStorage.getItem("tokenKey") == null) {
       alert('Your session has expired. Please login again');
