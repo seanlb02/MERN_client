@@ -32,7 +32,7 @@ const Journal = () => {
   const [showItems, setShowItems] = React.useState(false)
 
 
-  const reactions = ['Joy', 'Sad', 'Anger', 'Happy']
+  const reactions = ['joy', 'sad', 'anger', 'happy']
 
   const newEvent = {
     id: useId(),

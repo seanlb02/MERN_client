@@ -8,12 +8,12 @@ import { CheckTokenExpiration } from '../API services (fetch functions)/tokenSer
 
 export default function Friends() {
 
-    useEffect(() => {   
+    useEffect(() => {
         CheckTokenExpiration();
     },[]);
 
-// on Mount, we fetch all user tracking and trackers 
-    useEffect(() => {   
+// on Mount, we fetch all user tracking and trackers
+    useEffect(() => {
         listTracking().then((data) => {setTrackingArray(data[0].tracking)})
 
         listTrackers().then((data) => {setTrackersArray(data[0].trackers)})
@@ -42,37 +42,37 @@ export default function Friends() {
                 window.location.reload()
             }
         })
-    
+
 }
 
   return (
     <>
-       
+
         <Card className="mx-4 d-flex justify-content-center">
             <Card.Header>Trackers</Card.Header>
             <Card.Body>
-               
+
                 <Card.Text className="d-flex flex-wrap gap-2 justify-content-center">
-                   
-                    {trackersArray.map(tracker => <div className="border border-secondary p-1 px-3 rounded-pill">{tracker.user}<span className="ms-3 cursor-pointer text-danger" onClick={() => {revokeTracker(tracker.user)}}><strong className="cursor-pointer">X</strong></span></div>)}
+
+                      {trackersArray.map(tracker => <div className="border border-secondary p-1 px-3 rounded-pill" >{tracker.user}<span className="ms-3 cursor-pointer text-danger" onClick={() => {revokeTracker(tracker.user)}}><strong className="cursor-pointer">X</strong></span></div>)}
                 </Card.Text>
                 <Form.Group className=" mb-4 mt-4 d-flex flex-column justify-content-center">
                         <div>{error}</div>
 
                         <input type="text" className="form-control d-flex col-6 mx-auto justify-content-center" id="Inputtracker" name="username" onChange={(e) => { setTracker(e.target.value) }} placeholder="Enter username"></input>
                     </Form.Group>
-                <Button onClick={onSubmit} variant="primary">Authorise Tracker</Button>
+                <Button onClick={onSubmit} variant="primary" className="round">Authorise Tracker</Button>
             </Card.Body>
         </Card>
 
         <Card className="mx-4 mt-4 d-flex justify-content-center">
             <Card.Header>Tracking</Card.Header>
             <Card.Body>
-               
+
                 <Card.Text className="d-flex flex-wrap gap-2 justify-content-center">
-                {trackingArray.map(tracker => <a className="text-white text-decoration-none" href={`/summary/${tracker.user}`}><div className="border border-success p-1 px-3 text-white bg-warning cursor-pointer rounded-pill">{tracker.user}</div></a>)}
+                      {trackingArray.map(tracker => <a className="text-white text-decoration-none" href={`/summary/${tracker.user}`}><div className="border  p-1 px-3 text-white cursor-pointer rounded-pill" style={{ backgroundColor: "#F77E49"}}>{tracker.user}</div></a>)}
                 </Card.Text>
-              
+
             </Card.Body>
         </Card>
     </>
