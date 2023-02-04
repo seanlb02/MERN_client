@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-      <WelcNav />
+
       <Container>
         <Row calssName= "px-4 my-5">
           <Col sm={7}>
@@ -27,7 +27,7 @@ export default function Home() {
           <Col sm={5}>
             <h1>A Journal For All Your Mood</h1>
             <p class= "mt-4">Serene is a journal to help you keep track and reflect
-              upon all your moods throughout the day, week, month and year.
+              upon all your mental wellbeing throughout the day, week, month and year.
             </p>
             <Button>
               Start Journey
