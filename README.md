@@ -103,31 +103,31 @@ High-resolution wireframes located in /assets/Wireframes.
 
 ### <u>Sign up</u>
 
-![](/./docs/wireframe%20screen%20comparison/loginwire.png)
+![](/docs/wireframe%20screen%20comparison/loginwire.png)
 
 
 ### <u>Log in</u>
-![](/./docs/wireframe%20screen%20comparison/signupwire.png)
+![](/docs/wireframe%20screen%20comparison/signupwire.png)
 
 ### <u>Profile</u>
-![](/./docs/wireframe%20screen%20comparison/homewire.png)
+![](/docs/wireframe%20screen%20comparison/homewire.png)
 
 ### <u>Journal</u>
-![](/./docs/wireframe%20screen%20comparison/journalwire.png)
+![](/docs/wireframe%20screen%20comparison/journalwire.png)
 
 ### <u>Questionnaire</u>
-![](/./docs/wireframe%20screen%20comparison/questionairewire.png)
+![](/docs/wireframe%20screen%20comparison/questionairewire.png)
 
 ### <u>Summary</u>
-![](/./docs/wireframe%20screen%20comparison/summarywire.png) ![](/./docs/wireframe%20screen%20comparison/summarymobile.png)
+![](/docs/wireframe%20screen%20comparison/summarywire.png) ![](/docs/wireframe%20screen%20comparison/summarymobile.png)
 
 
 
 ### <u>Settings</u>
-![](/./docs/wireframe%20screen%20comparison/trackersetting1.png)
+![](/docs/wireframe%20screen%20comparison/trackersetting1.png)
 
 ### <u>Authorise remote tracker</u>
-![](/./docs/wireframe%20screen%20comparison/trackerlist.png)
+![](/docs/wireframe%20screen%20comparison/trackerlist.png)
 
 ## Trello Screenshots 
 (https://trello.com/b/MMurIsLO/mern-frontend-kanban)  
