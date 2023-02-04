@@ -27,12 +27,16 @@ const Questionnaire = () => {
       const [showResults, setShowResults] = useState(false);
       // const[finalScore, setFinalScore] = useState("");
       const [selections, setSelections] = useState([Object.keys(questions).map(x => [])]);
-      
+      const [warning, setWarning] = useState("")
+
+
       let values = Object.values(selections)
       let message = " "
       let score = 0
       values.forEach(val => (score += val))
       
+      let count = 0
+
       if (score <= 10){
         message = "Your result is Normal."
       }else if (score <=20){
@@ -48,10 +52,12 @@ const Questionnaire = () => {
       }
     
       const submitHandler = (event) => {
-        console.log(selections);
+        console.log("selection")
+        console.log( selections);
         // console.log(score)
         event.preventDefault();
-        setShowResults(true)
+        countScores(count)
+        // setShowResults(true)
         addScore(score)
         // setFinalScore(score)
         // console.log(finalScore)
@@ -64,6 +70,22 @@ const Questionnaire = () => {
         setSelections(tempState);
       };
     
+      const countScores= (count) =>{
+        if(count === 10){
+          setShowResults(true)
+        }else{
+          setShowResults(false)
+          setWarning("Please answer all questions")
+        }
+      }
+        for(let key in selections) {
+          ++count
+      
+        }
+        console.log("count")
+        console.log(count)
+  
+
       const restartGame = () => {
         
         setShowResults(false);
@@ -79,6 +101,7 @@ const Questionnaire = () => {
             <h1 style ={{color: "#6486DD" }}>
               My Weekly Check-Up
             </h1>
+            
             {showResults? (
             <div>
                 <h2>Score is {score} </h2>
@@ -156,14 +179,15 @@ const Questionnaire = () => {
               );
             })}
           </ol>
+          <div ><h4 style={{color:"red"}}><strong>{warning}</strong></h4></div>
           <div className="button_container">
-            <button className="btn" onClick={submitHandler}>
-              <span>Submit</span>
+            <button className="btn mb-5" style={{background: "#6486DD"}}onClick={submitHandler}>
+              <span style={{color: "#fff"}}>Submit</span>
             </button>
           </div>
           </div>
           )}
-    
+
         </div>
       );
 }
