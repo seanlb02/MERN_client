@@ -27,7 +27,6 @@ export default function UserSummary() {
         item.tags.map(tag => {
             return emotionsTag.push(tag)
         })
-       
     })
 
 

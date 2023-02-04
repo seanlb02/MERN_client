@@ -2,6 +2,7 @@ import React, { useId, useState, useRef, useEffect } from 'react'
 import { Overlay, Button, Form, Card, Container } from 'react-bootstrap'
 import { getEntries, PostEntry } from '../API services (fetch functions)/entriesServices';
 import { CheckTokenExpiration } from '../API services (fetch functions)/TokenServices';
+import { getUserData } from '../API services (fetch functions)/userServices';
 
 const defaultEvents = [{
   id: 1,
@@ -11,9 +12,12 @@ const defaultEvents = [{
 }];
 
 const Journal = () => {
+  const [dataArray, setDataArray] = React.useState([])
   const [entriesArray, setEntriesArray] = React.useState([])
+
   useEffect(() => {
     CheckTokenExpiration();
+    getUserData().then((data) => {setDataArray(data) })
     getEntries().then((data) => { setEntriesArray(data) })
   }, [])
 
