@@ -44,9 +44,9 @@ const Questionnaire = () => {
       }else if(score <= 30){
         message = "Your result is Moderate."
       }else if(score <= 40){
-        message = "Your result is high"
+        message = "Your result is high. It's ok to slow down."
       }else if(score <= 50){
-        message = "Your result is very high. You need some medication."
+        message = "Your result is very high. We recommend you seek support and talk to someone you trust."
       }else{
         message = ""
       }
@@ -106,7 +106,9 @@ const Questionnaire = () => {
             <div>
                 <h2>Score is {score} </h2>
                 <h3>{message}</h3>
-                <button onClick={() => restartGame()}>Test Again</button>
+                <button className="round" style= {{padding: 4,
+                color:'white'
+                }}onClick={() => restartGame()}>Test Again</button>
             </div>
             ):(
 

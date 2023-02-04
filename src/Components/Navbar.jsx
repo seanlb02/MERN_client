@@ -64,10 +64,10 @@ export default function Navigator() {
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ms-auto d-flex align-items-center">
                     <li className="nav-item active px-3">
-                        <a className="nav-link content-align-center" href="/login">Login</a>
+                <a className="nav-link content-align-center" style={{ color: "#6486DD"}}href="/login">Login</a>
                         </li>
                     <li className="nav-link px-3 align-items-center">
                         <a href="/register"><button className="btn btn-primary btn-lg round" type="submit">Sign-up</button></a>

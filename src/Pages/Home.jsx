@@ -16,42 +16,106 @@ export default function Home() {
     <>
 
       <Container>
-        <Row calssName= "px-4 my-5">
-          <Col sm={7}>
+        <Row className= "px-4 my-5">
+          <Col sm={8}>
             <Image
               src="src/assets/Opening_image.jpg"
               fluid
-              className= ""
+              width= "700px"
+
             />
           </Col>
-          <Col sm={5}>
-            <h1>A Journal For All Your Mood</h1>
+          <Col sm={4} className="py-3">
+            <h2 id="welch2">A Journal For All Your Mood</h2>
             <p class= "mt-4">Serene is a journal to help you keep track and reflect
               upon all your mental wellbeing throughout the day, week, month and year.
             </p>
-            <Button>
+            <Button className="round">
               Start Journey
             </Button>
           </Col>
         </Row>
       </Container>
       <Container>
-        <Row calssName="px-4 my-5">
-          <Col sm={7}>
+        <Row className="px-4 my-5">
+          <Col sm={8} className="my-4">
             <Image
-              src="src/assets/journalpage.png"
+              src="src/assets/myjournal.png"
               fluid
-              width="500px"
-              className=""
+              id="welcimg"
             />
           </Col>
-          <Col sm={5}>
-            <Image src= "src/assets/cheer.png"
-            width="300px"
+          <Col sm={4}>
+            <Image src= "src/assets/journallogo.png"
+            width="250px"
             fluid
             />
-            <h1>Set your mood for the day</h1>
-            <p class="mt-4">Write a small note to yourself to start your day right.
+            <h2 id="welch2">Put your emotions down</h2>
+            <p className="mt-2">Track your emotions throughout the day by adding
+            journals and selecting up to 12 emotion tags along with it.</p>
+
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row className="px-4 my-5">
+          <Col sm={8} className="my-4">
+            <Image
+              src="src/assets/mysummary.png"
+              fluid
+              id="welcimg"
+            />
+          </Col>
+          <Col sm={4}>
+            <Image src="src/assets/reflectlogo.png"
+              width="250px"
+              fluid
+            />
+            <h2 id="welch2">Reflect</h2>
+            <p className="mt-2">Get daily summary of your mood.
+            </p>
+
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row className="px-4 my-5">
+          <Col sm={8} className="my-4">
+            <Image
+              src="src/assets/mygraph.png"
+              fluid
+              id="welcimg"
+
+            />
+          </Col>
+          <Col sm={4}>
+            <Image src="src/assets/checkuplogo.png"
+              width="250px"
+              fluid
+            />
+            <h2 id="welch2">Weekly Checkup</h2>
+            <p className="mt-2">Complete weekly questionnaire to track your mental health
+            </p>
+
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row className="px-4 my-5">
+          <Col sm={8} className="my-4">
+            <Image
+              src="src/assets/friendgraph.png"
+              fluid
+              id="welcimg"
+            />
+          </Col>
+          <Col sm={4}>
+            <Image src="src/assets/cheer.png"
+              width="250px"
+              fluid
+            />
+            <h2 id="welch2">Share</h2>
+            <p className="mt-2">Share your mental health summary with your friends
             </p>
 
           </Col>
