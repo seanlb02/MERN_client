@@ -2,7 +2,7 @@ import React, { useId, useState, useRef, useEffect } from 'react'
 import { Overlay, Button, Form, Card, Container, Badge } from 'react-bootstrap'
 import { getEntries, PostEntry } from '../API services (fetch functions)/entriesServices';
 import { editMemo } from '../API services (fetch functions)/userServices';
-import { CheckTokenExpiration } from '../API services (fetch functions)/TokenServices';
+import { CheckTokenExpiration } from '../API services (fetch functions)/tokenServices';
 import { getUserData } from '../API services (fetch functions)/userServices';
 import '../App.css'
 
