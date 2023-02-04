@@ -65,11 +65,11 @@ export default function Navigator() {
                     <i class="fa fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav ms-auto">
+                <ul className="navbar-nav ms-auto d-flex align-items-center">
                     <li className="nav-item active px-3">
-                        <a className="nav-link" href="/login">Login</a>
+                        <a className="nav-link content-align-center" href="/login">Login</a>
                         </li>
-                    <li className="nav-link px-3">
+                    <li className="nav-link px-3 align-items-center">
                         <a href="/register"><button className="btn btn-primary btn-lg round" type="submit">Sign-up</button></a>
                     </li>
                 </ul>

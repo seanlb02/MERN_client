@@ -7,9 +7,16 @@ const Register = () => {
     const[username, setUsername] = useState("")
     const[password, setPassword] = useState("")
 
+    const[warning, setWarning] = useState("")
+
         const submitForm = function (e) {
             e.preventDefault();
-            registerUser(email, username, password)
+            // cant seem to catch mongoose validator error in back end - but email syntax is validated as is username duplication
+            if (email.includes("@") && email.includes(".")) {
+                registerUser(email, username, password)
+            }
+            else {setWarning("One or more inputs is invalid. Try Again")}
+            
         }
 
         
@@ -27,6 +34,7 @@ const Register = () => {
                     <Form.Group className="mb-4">
                         <input type="password" className="form-control" id="InputPassword" name="password"  onChange={(e) => { setPassword(e.target.value) }} placeholder="Enter password"></input>
                     </Form.Group>
+                    <div className="mb-2 text-danger">{warning}</div>
                     <Button type="submit" className="btn btn-success btn-block btn-lg round mb-2" onClick={submitForm}>
                         Sign-up
                     </Button>
