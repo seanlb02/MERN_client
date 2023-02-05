@@ -10,14 +10,6 @@ import { validateTracker } from "../API services (fetch functions)/friendService
 import '../App.css'
 
 
-
-
-
-
-
-
-
-
 export default function TrackedSummary() {
 
     const [todaysTag, setTodaysTag] = useState([])
@@ -198,6 +190,10 @@ export default function TrackedSummary() {
     )
 
 }
+
+
+
+
 
 
 

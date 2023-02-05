@@ -1,4 +1,4 @@
-//  this is for the logged in user's summary 
+//  this is for the logged in user's summary
 
 
 import {React, useState, useEffect} from 'react'
@@ -15,7 +15,7 @@ import '../App.css'
 export default function UserSummary() {
     const [todaysTag, setTodaysTag] = useState([])
     const [emotionsTag, setEmotionsTag] = useState([])
-    
+
     useEffect(() => {
         CheckTokenExpiration();
         getMonthScores().then((data) => {setScoresArray(data)})
@@ -92,6 +92,10 @@ export default function UserSummary() {
 
 
 
+
+
+
+
     const COLORS = ['#8F99EA', '#E88B8C', '#EFA58D', '#7EC6E7','#F9AE5E','#CFD65B','#A1D2CF','#00939D','#CEC4DE','#F9C6CB','#FFF16C','#DEE0C4'];
     const styled = {
         listStyleType: 'none'
@@ -134,7 +138,7 @@ export default function UserSummary() {
             <Col lg={7}  style={{backgroundColor: "#F9FAFD"}}>
 
                 <div className='mt-5 d-flex justify-content-center align-items-center'>
-                    
+
                         <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
                             <div className="emotionButton mr-2" style={{backgroundColor:"#8F99EA"}}></div>
                             <div>Joy</div>
@@ -191,10 +195,10 @@ export default function UserSummary() {
                             <div>Self-hostility</div>
                         </div>
                 </div>
- 
-                        
-                        
-                
+
+
+
+
                 <PieChart width={300} height={300} style={{margin: "0 auto"}}className="d-flex justify-content-center align-items-center ">
                     <Pie
                         data={data}
@@ -207,14 +211,14 @@ export default function UserSummary() {
                         dataKey="value"
                     >
                         {data.map((entry, index) => (
-                            
+
                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        
+
                         ))}
                     </Pie>
             </PieChart>
 
- 
+
             </Col>
             <Col lg={5} className=' d-flex align-items-center justify-content-center' >
                 <div>
@@ -229,10 +233,10 @@ export default function UserSummary() {
         </Row>
         <Row style={{marginBottom: "100px"}}>
             <Col lg={7} style={{backgroundColor: "#F9FAFD"}} className="pt-5">
-            
+
             <LineChart  width={500} height={400} data={scoresArray} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                 <Line type="monotone" dataKey="score" stroke="#8884d8" />
-        
+
                 <XAxis  label={{ value: 'The Last 30 days', angle: 0, position: 'center' }} tick={false} />
                 <YAxis type="number" domain={[10,50]} label={{ value: 'Scores', angle: -90, position: 'insideLeft' }}/>
             </LineChart>
@@ -242,15 +246,15 @@ export default function UserSummary() {
                     <h3 className='mt-5' style={{color: "#8F99EA"}}><strong>Your wellbeing through the last month</strong></h3>
                    <p>Life can be full of ups and downs. While this graph may help you to understand your recent states over the period of time. Have a look how this month has been for you.</p>
                    <p>This graph defines the wellbeing scores that you have recorded over the last 30 days.</p>
- 
+
                 </div>
             </Col>
         </Row>
 
     </Container>
- 
 
- 
+
+
   </>
     )
 }
