@@ -5,7 +5,41 @@
 [Client github](https://github.com/seanlb02/MERN_client)
 
 
-## Site Description
+## Operating the site 
+
+Feel free to create an account and navigate at will. However, to have a quick look at full Serene, use the following test account at sign in:
+
+Username: <em>testaccount</em>
+
+Password: <em>password</em>
+
+### <u>Profile/Journal page</u>
+
+This landing page shows you (1) a daily memo/affirmation/inspiration that can be updated at will and (2) a list of journal entries organised from earliest to latest. 
+
+Feel free to add your own entry whenever inspiration strikes
+
+### <u>Check in (questionnaire)</u>
+
+A simple 10 question mental wellbeing profiler returns a score out of 50. With increasing scores representing higher states of distress. These scores are logged in a 30 day summary chart on your <em>summary</em> page.
+
+### <u>Summary page</u>
+
+This page summaries your emotions over the past 24 hours (pie chart), as well as your wellbeing scores recorded over the past 30 days (line chart)
+
+### <u>Authorise Tracker page</u>
+
+This page lists (1) the users who you have authorised to track your summary page and (2) the users who have authorised YOU to track THEIR summary page. 
+
+Enter a username of a user you wish to authorise. Click the 'X' to revoke this access. 
+
+Click on a green username tag to view a summary of one of the users you are tracking. 
+
+### <u>Settings</u> 
+
+A page for you to delete your account if needed. Account deletion with remove all user data from the database including all authorisations given to trackers. 
+
+# Site Description
 
 ### Purpose 
 
