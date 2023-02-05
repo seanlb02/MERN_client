@@ -25,14 +25,17 @@ export default function Home() {
 
             />
           </Col>
-          <Col sm={4} className="py-3">
-            <h2 id="welch2">A Journal For All Your Mood</h2>
-            <p class= "mt-4">Serene is a journal to help you keep track and reflect
-              upon all your mental wellbeing throughout the day, week, month and year.
-            </p>
-            <Button className="round">
-              Start Journey
-            </Button>
+          <Col sm={{ span: 4, offset: 1 }} className="py-3 d-flex justify-content-center align-items-center">
+            <div>
+              <h2 id="welch2">A Journal For All Your Mood</h2>
+              <p class="mt-4">Serene is a journal to help you keep track and reflect
+                upon all your mental wellbeing throughout the day, week, month and year.
+              </p>
+              <Button className="round">
+                Start Journey
+              </Button>
+            </div>
+
           </Col>
         </Row>
       </Container>
@@ -45,13 +48,13 @@ export default function Home() {
               id="welcimg"
             />
           </Col>
-          <Col sm={4}>
+          <Col sm={{span:4, offset: 1}}>
             <Image src= "src/assets/journallogo.png"
             width="250px"
             fluid
             />
             <h2 id="welch2">Put your emotions down</h2>
-            <p className="mt-2">Track your emotions throughout the day by creating entries
+            <p className="mt-2 text-align-left">Track your emotions throughout the day by creating entries
              and selecting emotion tags along with it.</p>
 
           </Col>
@@ -66,7 +69,7 @@ export default function Home() {
               id="welcimg"
             />
           </Col>
-          <Col sm={4}>
+          <Col sm={{ span: 4, offset: 1 }}>
             <Image src="src/assets/reflectlogo.png"
               width="250px"
               fluid
@@ -91,7 +94,7 @@ export default function Home() {
 
             />
           </Col>
-          <Col sm={4}>
+          <Col sm={{ span: 4, offset: 1 }}>
             <Image src="src/assets/checkuplogo.png"
               width="250px"
               fluid
@@ -115,7 +118,7 @@ export default function Home() {
               id="welcimg"
             />
           </Col>
-          <Col sm={4}>
+          <Col sm={{ span: 4, offset: 1 }}>
             <Image src="src/assets/cheer.png"
               width="250px"
               fluid
