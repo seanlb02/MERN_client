@@ -44,9 +44,9 @@ const Questionnaire = () => {
       }else if(score <= 30){
         message = "Your result is Moderate."
       }else if(score <= 40){
-        message = "Your result is high. It's ok to slow down."
+        message = "Your result is high. It's ok to slow down. Find time to talk to someone."
       }else if(score <= 50){
-        message = "Your result is very high. We recommend you seek support and talk to someone you trust."
+        message = "Your result is very high. We recommend you seek professional support  and talk to someone you trust."
       }else{
         message = ""
       }

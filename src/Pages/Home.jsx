@@ -17,7 +17,7 @@ export default function Home() {
 
       <Container>
         <Row className= "px-4 my-5">
-          <Col sm={8}>
+          <Col sm={7}>
             <Image
               src="src/assets/Opening_image.jpg"
               fluid
@@ -38,7 +38,7 @@ export default function Home() {
       </Container>
       <Container>
         <Row className="px-4 my-5">
-          <Col sm={8} className="my-4">
+          <Col sm={7} className="my-4">
             <Image
               src="src/assets/myjournal.png"
               fluid
@@ -51,15 +51,15 @@ export default function Home() {
             fluid
             />
             <h2 id="welch2">Put your emotions down</h2>
-            <p className="mt-2">Track your emotions throughout the day by adding
-            journals and selecting up to 12 emotion tags along with it.</p>
+            <p className="mt-2">Track your emotions throughout the day by creating entries
+             and selecting emotion tags along with it.</p>
 
           </Col>
         </Row>
       </Container>
       <Container>
         <Row className="px-4 my-5">
-          <Col sm={8} className="my-4">
+          <Col sm={7} className="my-4">
             <Image
               src="src/assets/mysummary.png"
               fluid
@@ -72,7 +72,10 @@ export default function Home() {
               fluid
             />
             <h2 id="welch2">Reflect</h2>
-            <p className="mt-2">Get daily summary of your mood.
+            <p className="mt-2">We understand the importance of reflection.
+            Find the personalized daily summary of your moods in the summary page
+            to look back at your emotions throughout the day.
+
             </p>
 
           </Col>
@@ -80,7 +83,7 @@ export default function Home() {
       </Container>
       <Container>
         <Row className="px-4 my-5">
-          <Col sm={8} className="my-4">
+          <Col sm={7} className="my-4">
             <Image
               src="src/assets/mygraph.png"
               fluid
@@ -94,7 +97,10 @@ export default function Home() {
               fluid
             />
             <h2 id="welch2">Weekly Checkup</h2>
-            <p className="mt-2">Complete weekly questionnaire to track your mental health
+            <p className="mt-2">We value your mental health.
+            Complete our check-in assessment each week to make sure that
+            you're on top of your mental health condition and understand what kind
+            of support you might need right now.
             </p>
 
           </Col>
@@ -102,7 +108,7 @@ export default function Home() {
       </Container>
       <Container>
         <Row className="px-4 my-5">
-          <Col sm={8} className="my-4">
+          <Col sm={7} className="my-4">
             <Image
               src="src/assets/friendgraph.png"
               fluid
@@ -115,7 +121,8 @@ export default function Home() {
               fluid
             />
             <h2 id="welch2">Share</h2>
-            <p className="mt-2">Share your mental health summary with your friends
+            <p className="mt-2">You're not alone.Share your daily and monthly summary with your
+            friends and trusted supports and keep track of each other progress.
             </p>
 
           </Col>
