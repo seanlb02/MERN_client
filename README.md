@@ -131,7 +131,22 @@ Settings
 
 ## Screenshots
 
+### <u>Profile/Jorunal</u>
 
+![](/src/assets/myjournal.png)
+
+### <u>Check-in<u>
+![](/src/assets/checkin.png)
+
+### <u>Summary</u>
+
+![](/src/assets/MySummary.png)
+
+![](/src/assets/mygraph.png)
+
+### <u>User tracking</u>
+
+![](/src/assets/friendgraph.png)
 
 
 # Planning 
