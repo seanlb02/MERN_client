@@ -30,18 +30,43 @@ export default function UserSummary() {
     })
 
 
-
+    // const reactions = ['Joy', 'Interest', 'Surprise', 'Sadness', 'Anger', 'Disgust','Contempt','Fear', 'Shame','Shyness','Guilt','Self-hostility']
     let countJoy = 0
     let countAnger = 0
     let countSad = 0
-    let countHappy =0
+    let countInterest =0
+    let countSurprise=0
+    let countDisgust=0
+    let countContempt=0
+    let countFear=0
+    let countShame=0
+    let countShyness=0
+    let countGuilt=0
+    let countHostility=0
+
     emotionsTag.map((tag) =>{
-        if (tag === "joy"){
+        if (tag === "Joy"){
             return countJoy +=1
-        }else if(tag === "anger"){
+        }else if(tag === "Anger"){
             return countAnger +=1
-        }else if(tag === "happy"){
-            return countHappy +=1
+        }else if(tag === "Interest"){
+            return countInterest +=1
+        }else if(tag === "Surprise"){
+            return countSurprise +=1
+        }else if(tag === "Disgust"){
+            return countDisgust +=1
+        }else if(tag === "Contempt"){
+            return countContempt +=1
+        }else if(tag === "Fear"){
+            return countFear +=1
+        }else if(tag === "Shame"){
+            return countShame +=1
+        }else if(tag === "Shyness"){
+            return countShyness +=1
+        }else if(tag === "Guilt"){
+            return countGuilt +=1
+        }else if(tag === "Self-hostility"){
+            return countHostility +=1
         }else{
             return countSad +=1
         }
@@ -50,15 +75,24 @@ export default function UserSummary() {
     console.log(countJoy, countAnger, countSad)
 
     const data = [
-        { name: 'joy', value: countJoy },
-        { name: 'anger', value: countAnger },
-        { name: 'sad', value: countSad },
-        { name: 'happy', value: countHappy }
+        { name: 'Joy', value: countJoy },
+        { name: 'Anger', value: countAnger },
+        { name: 'Interest', value: countInterest },
+        { name: 'Surprise', value: countSurprise },
+        { name: 'Disgust', value: countDisgust },
+        { name: 'Contempt' , value: countContempt},
+        { name: 'Fear', value: countFear},
+        { name: 'Shame', value: countShame},
+        { name: 'Shyness', value: countShyness},
+        { name: 'Guilt', value: countGuilt},
+        { name: 'Self-hostility', value: countHostility},
+        { name: 'Sadness', value: countSad}
+
     ]
 
 
 
-    const COLORS = ['#8F99EA', '#E88B8C', '#EFA58D', '#7EC6E7'];
+    const COLORS = ['#8F99EA', '#E88B8C', '#EFA58D', '#7EC6E7','#F9AE5E','#CFD65B','#A1D2CF','#00939D','#CEC4DE','#F9C6CB','#FFF16C','#DEE0C4'];
     const styled = {
         listStyleType: 'none'
     }
@@ -77,7 +111,7 @@ export default function UserSummary() {
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
         return (
-            <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+            <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
             {`${(percent * 100).toFixed(0)}%`}
             </text>
         );
@@ -97,7 +131,7 @@ export default function UserSummary() {
             <Col lg={2} ><h4 >Daily Moods</h4></Col>
         </Row>
         <Row style={{marginBottom: "150px"}}>
-            <Col lg={7} style={{backgroundColor: "#F9FAFD"}}>
+            <Col lg={7}  style={{backgroundColor: "#F9FAFD"}}>
 
                 <div className='mt-5 d-flex justify-content-center align-items-center'>
                     
@@ -111,18 +145,60 @@ export default function UserSummary() {
                         </div>
                         <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
                             <div className="emotionButton mr-2" style={{backgroundColor:"#EFA58D"}}></div>
-                            <div>Sad</div>
+                            <div>Interest</div>
                         </div>
                         <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
                             <div className="emotionButton mr-2" style={{backgroundColor:"#7EC6E7"}}></div>
-                            <div>Happy</div>
+                            <div>Surprise</div>
                         </div>
-                        
                 </div>
-                <PieChart width={400} height={300} >
+
+
+                <div className='mt-1 d-flex justify-content-center align-items-center'>
+                        <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
+                            <div className="emotionButton mr-2" style={{backgroundColor:"#F9AE5E"}}></div>
+                            <div>Sadness</div>
+                        </div>
+                        <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
+                            <div className="emotionButton mr-2" style={{backgroundColor:"#CFD65B"}}></div>
+                            <div>Disgust</div>
+                        </div>
+                        <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
+                            <div className="emotionButton mr-2" style={{backgroundColor:"#A1D2CF"}}></div>
+                            <div>Contempt</div>
+                        </div>
+                        <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
+                            <div className="emotionButton mr-2" style={{backgroundColor:"#00939D"}}></div>
+                            <div>Fear</div>
+                        </div>
+                </div>
+
+                <div className='mt-1 d-flex justify-content-center align-items-center'>
+                        <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
+                            <div className="emotionButton mr-2" style={{backgroundColor:"#CEC4DE"}}></div>
+                            <div>Shame</div>
+                        </div>
+                        <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
+                            <div className="emotionButton mr-2" style={{backgroundColor:"#F9C6CB"}}></div>
+                            <div>Shyness</div>
+                        </div>
+                        <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
+                            <div className="emotionButton mr-2" style={{backgroundColor:"#FFF16C"}}></div>
+                            <div>Guilt</div>
+                        </div>
+                        <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
+                            <div className="emotionButton mr-2" style={{backgroundColor:"#DEE0C4"}}></div>
+                            <div>Self-hostility</div>
+                        </div>
+                </div>
+ 
+                        
+                        
+                
+                <PieChart width={300} height={300} style={{margin: "0 auto"}}className="d-flex justify-content-center align-items-center ">
                     <Pie
                         data={data}
-                        cx="70%"
+                        cx="50%"
                         cy="50%"
                         labelLine={false}
                         label={renderCustomizedLabel}
@@ -143,7 +219,7 @@ export default function UserSummary() {
             <Col lg={5} className=' d-flex align-items-center justify-content-center' >
                 <div>
                     <h3 className='mt-5' style={{color: "#8F99EA"}}><strong>Your Moods Today</strong></h3>
-                   <p >Let's have a look at you moods throughout today. Looks like you've been feeling joy,anger,sad and happy today. Take a moment to reflect your day.</p>
+                   <p >Let's have a look at you moods throughout today. Take a moment to reflect your day.</p>
                    <p>This chart will help you to understand that how significantly these emotions can affect you feelings,thinking process and interaction with others.</p>
                 </div>
             </Col>
