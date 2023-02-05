@@ -81,15 +81,33 @@ Express/Node js, MongoDb, Mongoose
 
 ### <u>Testing</u>
 
-Vitest, Jest
+Vitest, Jest 
 
 ### <u>Deployment</u>
 
 Railway 
 
-### <u>Client-side Modules</u>
+### <u>Client-side Modules & libraries</u>
 
-popperJS, dotenv, JWT-decode
+popperJS: A boostrap jQuery library used to implement Bootstrap responsive components, particularly collapsible navbars and menus. 
+
+dotenv: used to facilitate the declaration of 
+
+Vitest: (vitest is a testing framework compatible with Vite-built react apps and is built on top of jest - a popular javascript testing library)
+
+JWT-decode: JWT decode is used in the client program to extract a JWT's signature time, in order to deduce whether a stored user access token has expired or not.
+
+Mongoose-Validator: A mongoose model/schema validator plugin used to validate mongoDB document fields.
+
+Jsonwebtoken: is a Express-friendly library that generates and validates Json web tokens for use in client authentication. It was used in the server app to generate tokens, and in middleware for each route. 
+
+bcrypt: a popular encryption library that was used to hash and salt each user password before it was stored in the database. It was also used during user 'login'. 
+
+CORS: a middleware library that allows cross-origin-resource-sharing for the backend api.
+
+Supertest: another testing library built on top of Jest that is suited for express route testing. 
+
+
 
 ## Data Flow Diagram
 
@@ -98,6 +116,7 @@ popperJS, dotenv, JWT-decode
 ## Application Architecture Diagram
 
 ![](./docs/architecture.svg)
+
 
 
 ## User stories 
