@@ -124,7 +124,7 @@ export default function Home() {
               fluid
             />
             <h2 id="welch2">Share</h2>
-            <p className="mt-2">You're not alone.Share your daily and monthly summary with your
+            <p className="mt-2">You're not alone. Share your daily and monthly summary with your
             friends and trusted supports and keep track of each other progress.
             </p>
 
