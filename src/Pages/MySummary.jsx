@@ -31,64 +31,129 @@ export default function UserSummary() {
 
 
     // const reactions = ['Joy', 'Interest', 'Surprise', 'Sadness', 'Anger', 'Disgust','Contempt','Fear', 'Shame','Shyness','Guilt','Self-hostility']
-    let countJoy = 0
-    let countAnger = 0
-    let countSad = 0
-    let countInterest =0
-    let countSurprise=0
-    let countDisgust=0
-    let countContempt=0
-    let countFear=0
-    let countShame=0
-    let countShyness=0
-    let countGuilt=0
-    let countHostility=0
+    // let countJoy = 0
+    // let countAnger = 0
+    // let countSad = 0
+    // let countInterest =0
+    // let countSurprise=0
+    // let countDisgust=0
+    // let countContempt=0
+    // let countFear=0
+    // let countShame=0
+    // let countShyness=0
+    // let countGuilt=0
+    // let countHostility=0
+
+    // emotionsTag.map((tag) =>{
+    //     if (tag === "Joy"){
+    //         return countJoy +=1
+    //     }else if(tag === "Anger"){
+    //         return countAnger +=1
+    //     }else if(tag === "Interest"){
+    //         return countInterest +=1
+    //     }else if(tag === "Surprise"){
+    //         return countSurprise +=1
+    //     }else if(tag === "Disgust"){
+    //         return countDisgust +=1
+    //     }else if(tag === "Contempt"){
+    //         return countContempt +=1
+    //     }else if(tag === "Fear"){
+    //         return countFear +=1
+    //     }else if(tag === "Shame"){
+    //         return countShame +=1
+    //     }else if(tag === "Shyness"){
+    //         return countShyness +=1
+    //     }else if(tag === "Guilt"){
+    //         return countGuilt +=1
+    //     }else if(tag === "Self-hostility"){
+    //         return countHostility +=1
+    //     }else{
+    //         return countSad +=1
+    //     }
+    // })
+
+    // bug test 
+
+    const [joy, setJoy] = useState(null)
+    const [anger, setAnger] = useState(null)
+    const [sad, setSad] = useState(null)
+    const [interest, setInterest] = useState(null)
+    const [surprise, setSurprise] = useState(null)
+    const [disgust, setDisgust] = useState(null)
+    const [contempt, setContempt] = useState(null)
+    const [fear, setFear] = useState(null)
+    const [shame, setShame] = useState(null)
+    const [shyness, setShyness] = useState(null)
+    const [guilt, setGuilt] = useState(null)
+    const [hostility, setHostility] =useState(null)
 
     emotionsTag.map((tag) =>{
         if (tag === "Joy"){
-            return countJoy +=1
+            setJoy(1)
         }else if(tag === "Anger"){
-            return countAnger +=1
+            setAnger(1)
         }else if(tag === "Interest"){
-            return countInterest +=1
+            setInterest(1)
         }else if(tag === "Surprise"){
-            return countSurprise +=1
+            setSurprise(1)
         }else if(tag === "Disgust"){
-            return countDisgust +=1
+            setDisgust(1)
         }else if(tag === "Contempt"){
-            return countContempt +=1
+            setContempt(1)
         }else if(tag === "Fear"){
-            return countFear +=1
+            setFear(1)
         }else if(tag === "Shame"){
-            return countShame +=1
+            setShame(1)
         }else if(tag === "Shyness"){
-            return countShyness +=1
+            setShyness(1)
         }else if(tag === "Guilt"){
-            return countGuilt +=1
+            setGuilt(1)
         }else if(tag === "Self-hostility"){
-            return countHostility +=1
+            setHostility(1)
         }else{
-            return countSad +=1
+            setSad(1)
         }
     })
 
-    console.log(countJoy, countAnger, countSad)
 
+    console.log(countJoy, countAnger, countInterest, countSurprise, countDisgust, countContempt, countFear, countShame, countShyness, countGuilt, countHostility, countSad)
+
+    // removing the 0% bug with conditional renders
+
+    
     const data = [
-        { name: 'Joy', value: countJoy },
-        { name: 'Anger', value: countAnger },
-        { name: 'Interest', value: countInterest },
-        { name: 'Surprise', value: countSurprise },
-        { name: 'Disgust', value: countDisgust },
-        { name: 'Contempt' , value: countContempt},
-        { name: 'Fear', value: countFear},
-        { name: 'Shame', value: countShame},
-        { name: 'Shyness', value: countShyness},
-        { name: 'Guilt', value: countGuilt},
-        { name: 'Self-hostility', value: countHostility},
-        { name: 'Sadness', value: countSad}
+        { name: 'Joy', value: joy},
+        { name: 'Anger', value: anger },
+        { name: 'Interest', value: interest },
+        { name: 'Surprise', value: surprise },
+        { name: 'Disgust', value: disgust },
+        { name: 'Contempt' , value: contempt},
+        { name: 'Fear', value: fear},
+        { name: 'Shame', value: shame},
+        { name: 'Shyness', value: shyness},
+        { name: 'Guilt', value: suilt},
+        { name: 'Self-hostility', value: hostility},
+        { name: 'Sadness', value: sad}
 
     ]
+
+    // const data = [
+    //     { name: 'Joy', value: countJoy},
+    //     { name: 'Anger', value: countAnger },
+    //     { name: 'Interest', value: countInterest },
+    //     { name: 'Surprise', value: countSurprise },
+    //     { name: 'Disgust', value: countDisgust },
+    //     { name: 'Contempt' , value: countContempt},
+    //     { name: 'Fear', value: countFear},
+    //     { name: 'Shame', value: countShame},
+    //     { name: 'Shyness', value: countShyness},
+    //     { name: 'Guilt', value: countGuilt},
+    //     { name: 'Self-hostility', value: countHostility},
+    //     { name: 'Sadness', value: countSad}
+
+    // ]
+
+    const non0data = data.map(el => {if(el.value === 0){}})
 
 
 
