@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-      port: process.env.PORT || "mernclient-production.up.railway.app"
+      // port: process.env.PORT || "mernclient-production.up.railway.app"
       },
     watch: {
       usePolling: true,

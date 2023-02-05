@@ -29,7 +29,7 @@ export default function Navigator() {
 { loggedIn ?
 
     <nav className="navbar navbar-expand-lg navbar light">
-          <a className="navbar-brand" href="#"><img src="src/assets/logo.png" alt= "logo"></img></a>
+          <a className="navbar-brand" href="#"><img width="150px" src="https://drive.google.com/uc?id=107sK2RENnZ1VgJ70jlCA6B6xfifz68eu" alt= "logo"></img></a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <i className ="fa fa-bars"></i>
       </button>
@@ -60,9 +60,9 @@ export default function Navigator() {
     :
 
     <nav className="navbar navbar-expand-lg navbar light ">
-                <a className="navbar-brand" href="#"><img src="src/assets/logo.png" alt="logo"></img></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
+          <a className="navbar-brand" href="#"><img src="https://drive.google.com/uc?id=107sK2RENnZ1VgJ70jlCA6B6xfifz68eu" alt="logo"></img></a>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i className="fa fa-bars"></i>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ms-auto d-flex align-items-center">
