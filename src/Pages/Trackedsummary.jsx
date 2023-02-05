@@ -22,16 +22,16 @@ export default function TrackedSummary() {
 
     const [todaysTag, setTodaysTag] = useState([])
     const [emotionsTag, setEmotionsTag] = useState([])
-    const { username } = useParams() 
+    const { username } = useParams()
     const [invalid, setInvalid] = useState(true)
-    
+
     useEffect(() => {
         {validateTracker(username).then(res => {
             if (res.length > 0) {
                setInvalid(false)
             }
         })}
-    
+
         CheckTokenExpiration();
         getUserMonthScore(username).then((data) => {setScoresArray(data)})
         getUserDayTags(username).then((data) => {setTodaysTag(data)})
@@ -42,7 +42,7 @@ export default function TrackedSummary() {
         item.tags.map(tag => {
             return emotionsTag.push(tag)
         })
-       
+
     })
 
     let countJoy = 0
@@ -102,16 +102,16 @@ export default function TrackedSummary() {
     console.log(scoresArray)
 
 
- 
+
 
     return (
         <>
 
     {invalid ? <h4 className="text-danger">Not Authorised</h4> :
-    
+
     <Container>
         <Row>
-            <Col><h2 style={{color: "#8F99EA"}} className="mt-5"><strong>Here's a summary of <span className="text-warning">{username}&apos;s</span> mental wellbeing of late</strong></h2></Col>
+            <Col><h2 style={{ color: "#8F99EA" }} className="mt-5"><strong>Here's a summary of <span className="text-warning">{username}&apos;s</span> mental wellbeing of late</strong></h2></Col>
         </Row>
         <Row className="mt-5 mb-5 text-align-left">
             <Col lg={2} ><h4 >Daily Moods</h4></Col>
@@ -120,7 +120,7 @@ export default function TrackedSummary() {
             <Col lg={7} style={{backgroundColor: "#F9FAFD"}}>
 
                 <div className='mt-5 d-flex justify-content-center align-items-center'>
-                    
+
                         <div className="d-flex justify-content-center align-items-center mr-2 ml-1">
                             <div className="emotionButton mr-2" style={{backgroundColor:"#8F99EA"}}></div>
                             <div>Joy</div>
@@ -137,7 +137,7 @@ export default function TrackedSummary() {
                             <div className="emotionButton mr-2" style={{backgroundColor:"#7EC6E7"}}></div>
                             <div>Happy</div>
                         </div>
-                        
+
                 </div>
                 <PieChart width={400} height={300} >
                     <Pie
@@ -151,14 +151,14 @@ export default function TrackedSummary() {
                         dataKey="value"
                     >
                         {data.map((entry, index) => (
-                            
+
                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        
+
                         ))}
                     </Pie>
             </PieChart>
 
- 
+
             </Col>
             <Col lg={5} className=' d-flex align-items-center justify-content-center' >
                 <div>
@@ -173,10 +173,10 @@ export default function TrackedSummary() {
         </Row>
         <Row style={{marginBottom: "100px"}}>
             <Col lg={7} style={{backgroundColor: "#F9FAFD"}} className="pt-5">
-            
+
             <LineChart  width={500} height={400} data={scoresArray} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                 <Line type="monotone" dataKey="score" stroke="#8884d8" />
-        
+
                 <XAxis  label={{ value: 'The Last 30 days', angle: 0, position: 'center' }} tick={false} />
                 <YAxis type="number" domain={[10,50]} label={{ value: 'Scores', angle: -90, position: 'insideLeft' }}/>
             </LineChart>
@@ -186,7 +186,7 @@ export default function TrackedSummary() {
                     <h3 className='mt-5' style={{color: "#8F99EA"}}><strong>Your wellbeing through the last month</strong></h3>
                    <p>Life can be full of ups and downs. While this graph may help you to understand your recent states over the period of time. Have a look how this month has been for you.</p>
                    <p>This graph defines the wellbeing scores that you have recorded over the last 30 days.</p>
- 
+
                 </div>
             </Col>
         </Row>
