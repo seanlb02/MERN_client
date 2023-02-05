@@ -153,6 +153,8 @@ Settings
 
 # Planning 
 
+
+
 ## Wireframes 
 
 High-resolution wireframes located in /assets/Wireframes.
@@ -186,7 +188,8 @@ High-resolution wireframes located in /assets/Wireframes.
 ![](/docs/wireframe%20screen%20comparison/trackerlist.png)
 
 ## Trello Screenshots 
-(https://trello.com/b/MMurIsLO/mern-frontend-kanban)  
+Client: (https://trello.com/b/MMurIsLO/mern-frontend-kanban)  
+Backend: (https://trello.com/b/SduQeW9T/mern-backend)
 
 ![](/./docs/trello2.png)
 ![](/./docs/trello3.png)
