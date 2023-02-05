@@ -116,7 +116,7 @@ export default function UserSummary() {
     })
 
 
-    console.log(countJoy, countAnger, countInterest, countSurprise, countDisgust, countContempt, countFear, countShame, countShyness, countGuilt, countHostility, countSad)
+    // console.log(countJoy, countAnger, countInterest, countSurprise, countDisgust, countContempt, countFear, countShame, countShyness, countGuilt, countHostility, countSad)
 
     // removing the 0% bug with conditional renders
 
@@ -131,7 +131,7 @@ export default function UserSummary() {
         { name: 'Fear', value: fear},
         { name: 'Shame', value: shame},
         { name: 'Shyness', value: shyness},
-        { name: 'Guilt', value: suilt},
+        { name: 'Guilt', value: guilt},
         { name: 'Self-hostility', value: hostility},
         { name: 'Sadness', value: sad}
 
